@@ -1,8 +1,9 @@
 import { ViewportScroller } from '@angular/common';
-import { Component, ElementRef, OnChanges, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, OnChanges, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { AcessibilidadeDialogComponent } from 'src/app/portal/acessibilidade-dialog/acessibilidade-dialog.component';
+
 
 @Component({
   selector: 'app-acessibility-bar',
@@ -14,6 +15,7 @@ export class AcessibilityBarComponent {
   public divsArray = document.getElementsByTagName('div');
   public psArray = document.getElementsByTagName('p');
   public hsArray = document.getElementsByTagName('h1');
+  public h2sArray = document.getElementsByTagName('h2');
   public asArray = document.getElementsByTagName('a');
   public ulsArray = document.getElementsByTagName ('ul');
   public situationContrast = false;
@@ -53,7 +55,7 @@ export class AcessibilityBarComponent {
         document.querySelector(this.getAttribute('href')).click();
       });
     });
-  }
+  } 
 
   irConteudo() {
     document.getElementById("content").scrollIntoView();
@@ -133,6 +135,7 @@ export class AcessibilityBarComponent {
           div.style.border = null
         }
       }
+    
       for (let p of this.psArray){
         if (p.className != 'donotchange'){
           p.style.backgroundColor = null;
@@ -147,6 +150,14 @@ export class AcessibilityBarComponent {
           h.style.color = null; 
           h.style.boxShadow = null;
           h.style.border = null     
+        }
+      }
+      for (let h2 of this.h2sArray){
+        if (h2.className != 'donotchange'){
+          h2.style.backgroundColor = null;
+          h2.style.color = null; 
+          h2.style.boxShadow = null;
+          h2.style.border = null     
         }
       }
       for (let a of this.asArray){
@@ -232,6 +243,14 @@ export class AcessibilityBarComponent {
           h.style.border = '2px solid #ffeb3b'
         }
       }
+      for (let h2 of this.h2sArray){
+        if (h2.className != 'donotchange'){
+          h2.style.backgroundColor = 'black';
+          h2.style.color = 'white';
+          h2.style.boxShadow = '0 0 0 2px #000'; 
+          h2.style.border = '2px solid #ffeb3b'
+        }
+      }      
       for (let a of this.asArray){
         if (a.className != 'donotchange' && 
         a.className != 'hover' && 
@@ -294,6 +313,28 @@ export class AcessibilityBarComponent {
   onKeyPressConteudo(e: KeyboardEvent){
     if(e.keyCode == 13){
       this.irConteudo();
+    }
+  }
+
+  @HostListener('document:keydown', ['$event']) //Teclas de atalho
+  onKeyDown(e: KeyboardEvent){
+    let map = {};
+    map[e.keyCode] = e.type == 'keydown';
+
+    if ((e.shiftKey && map[49])){
+      document.getElementById("irConteudo").click();
+    } else if ((e.shiftKey && map[50])){
+      document.getElementById("irMenu").click();
+    }else if ((e.shiftKey && map[51])){    
+      document.getElementById("irRodapé").click();
+    } else if ((e.shiftKey && map[52])){ 
+      document.getElementById("irContraste").click();
+    } else if ((e.shiftKey && map[53])){    
+      document.getElementById("irAcessibilidade").click();
+    } else if ((e.shiftKey && map[54])){    
+      document.getElementById("aumentar").click();
+    } else if ((e.shiftKey && map[55])){    
+      document.getElementById("diminuir").click();
     }
   }
 

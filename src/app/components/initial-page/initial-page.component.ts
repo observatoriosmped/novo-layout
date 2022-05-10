@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AcessibilityBarComponent } from '../acessibility-bar/acessibility-bar.component';
 
 @Component({
@@ -11,11 +11,11 @@ export class InitialPageComponent implements OnInit {
   public divsArray = document.getElementsByTagName('div');
   public psArray = document.getElementsByTagName('p');
   public hsArray = document.getElementsByTagName('h1');
+  public h2sArray = document.getElementsByTagName('h2');
   public asArray = document.getElementsByTagName('a');
   public ulsArray = document.getElementsByTagName ('ul');
 
-  constructor(private acessibilityBarComponent: AcessibilityBarComponent) {
-  }
+  constructor (private acessibilityBarComponent: AcessibilityBarComponent) {}
 
   ngOnInit(): void {    
     var bench = document.getElementById('bench')
@@ -80,6 +80,14 @@ export class InitialPageComponent implements OnInit {
           h.style.border = '2px solid #ffeb3b'
         }
       }
+      for (let h2 of this.h2sArray){
+        if (h2.className != 'donotchange'){
+          h2.style.backgroundColor = 'black';
+          h2.style.color = 'white';
+          h2.style.boxShadow = '0 0 0 2px #000'; 
+          h2.style.border = '2px solid #ffeb3b'  
+        }
+      }
       // for (let a of this.asArray){
       //   if (a.className != 'donotchange' && 
       //   a.className != 'hover' && 
@@ -109,6 +117,7 @@ export class InitialPageComponent implements OnInit {
           ul.style.backgroundColor = 'black';
         }
       }
-    }
+    } 
   }
 }
+

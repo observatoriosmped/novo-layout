@@ -20,6 +20,7 @@ export class PortalComponent implements OnInit {
   public hsArray = document.getElementsByTagName('h1');
   public asArray = document.getElementsByTagName('a');
   public ulsArray = document.getElementsByTagName ('ul');
+  public h2sArray = document.getElementsByTagName('h2');
 
   public paineis: IPainel[];
   public paineisDataSource = new MatTableDataSource<IPainel>();
@@ -93,6 +94,14 @@ export class PortalComponent implements OnInit {
           h.style.border = '2px solid #ffeb3b'
         }
       }
+      for (let h2 of this.h2sArray){
+        if (h2.className != 'donotchange'){
+          h2.style.backgroundColor = 'black';
+          h2.style.color = 'white';
+          h2.style.boxShadow = '0 0 0 2px #000'; 
+          h2.style.border = '2px solid #ffeb3b'  
+        }
+      }
       // for (let a of this.asArray){
       //   if (a.className != 'donotchange' && 
       //   a.className != 'hover' && 
@@ -122,7 +131,7 @@ export class PortalComponent implements OnInit {
           ul.style.backgroundColor = 'black';
         }
       }
-    }
+    } 
 
 
     this.paineis = (await this.painelService.getPaineis().pipe(first()).toPromise());
