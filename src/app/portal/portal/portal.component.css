@@ -18,6 +18,10 @@ h2{
   line-height: 46px;
 }
 
+h3{
+  font-weight: bold;
+}
+
 .mat-input-element {
   color: #333333;
   background: #FFFFFF;
