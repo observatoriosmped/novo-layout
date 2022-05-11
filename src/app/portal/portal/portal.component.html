@@ -22,7 +22,7 @@
       <div class="grid-list" id="conteudo" isFocusable *ngIf="paineisDataSource.filteredData.length != 0">
           <mat-card cdkMonitorSubtreeFocus class="painel-card" *ngFor="let painel of paineisDataSource.filteredData" id="{{painel.titulo}}" [routerLink]="[painel.id]" (keypress)="irPainel($event)">
             <mat-card-header class="header">
-              <mat-card-title><h2 [attr.aria-label]="painel.titulo" aria-hidden="false">{{ painel.titulo | slice:0:45 }}{{ painel.titulo.length > 45 ? '...' : '' }}</h2></mat-card-title>
+              <mat-card-title><h3 [attr.aria-label]="painel.titulo" aria-hidden="false">{{ painel.titulo | slice:0:45 }}{{ painel.titulo.length > 45 ? '...' : '' }}</h3></mat-card-title>
               <mat-icon alt="painel">dashboard</mat-icon>
             </mat-card-header>
             <div class="content">
