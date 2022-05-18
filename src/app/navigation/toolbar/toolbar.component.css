@@ -5,10 +5,16 @@
     position: relative;
 }
 
+#title {
+    width: 100%;
+}
+
 h1{
     font-size: 40px;
     font-weight: bold;   
     padding: 5px; 
+    position: relative;
+    white-space: normal; 
 }
 
 .logo {

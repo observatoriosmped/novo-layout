@@ -59,10 +59,17 @@ export class AcessibilityBarComponent {
 
   irConteudo() {
     document.getElementById("content").scrollIntoView();
+    document.getElementsByTagName("h2")[0].focus();
   }
 
   irMenu() {
     document.getElementById("menubar").scrollIntoView();
+    document.getElementById("pgInicial").focus();
+  }
+
+  irRodape() {
+    document.getElementById("footertext1").scrollIntoView();
+    document.getElementById("footertext1").focus();
   }
 
   aumentarFonte(){
@@ -284,10 +291,6 @@ export class AcessibilityBarComponent {
     }
   }
 
-  irRodape() {
-    document.getElementById("footbar").scrollIntoView();
-  }
-
   openDialog() {
     if (!this.isDialogOpen) {
       this.dialog.open(AcessibilidadeDialogComponent);
@@ -321,19 +324,19 @@ export class AcessibilityBarComponent {
     let map = {};
     map[e.keyCode] = e.type == 'keydown';
 
-    if ((e.shiftKey && map[49])){
+    if (e.altKey && map[49]){
       document.getElementById("irConteudo").click();
-    } else if ((e.shiftKey && map[50])){
+    } else if ( e.altKey && map[50]){
       document.getElementById("irMenu").click();
-    }else if ((e.shiftKey && map[51])){    
+    }else if ((e.altKey && map[51])){    
       document.getElementById("irRodapé").click();
-    } else if ((e.shiftKey && map[52])){ 
+    } else if ((e.altKey && map[52])){ 
       document.getElementById("irContraste").click();
-    } else if ((e.shiftKey && map[53])){    
+    } else if ((e.altKey && map[53])){    
       document.getElementById("irAcessibilidade").click();
-    } else if ((e.shiftKey && map[54])){    
+    } else if ((e.altKey && map[54])){    
       document.getElementById("aumentar").click();
-    } else if ((e.shiftKey && map[55])){    
+    } else if ((e.altKey && map[55])){    
       document.getElementById("diminuir").click();
     }
   }
