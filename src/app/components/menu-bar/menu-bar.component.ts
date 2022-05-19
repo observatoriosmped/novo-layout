@@ -13,4 +13,13 @@ export class MenuBarComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  delay(ms: number) {
+    return new Promise( resolve => setTimeout(resolve, ms) );
+  }
+
+  async focus(){
+    await this.delay(500);
+    document.getElementsByTagName("h2")[0].focus();
+  }
+
 }
