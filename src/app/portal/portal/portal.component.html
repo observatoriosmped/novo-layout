@@ -1,15 +1,15 @@
 <div class="container" id="general-container"> 
   <div id="titulo">
-    <h2>Painéis</h2>
+    <h2 tabindex="0">Painéis</h2>
   </div>
   <div>
-    <p id="introducao">
+    <p tabindex="0" id="introducao">
       Os painéis são análises de dados e indicadores que o Observatório elabora através de cruzamentos de informações qualitativas e quantitativas compartilhadas com a Secretaria Municipal da Pessoa com Deficiência.
     </p>
   </div>
   <div class="lista-paineis">     
     <div class="pesquisa {{classe}}">
-      <mat-form-field class="form-field">
+      <mat-form-field id="matform" class="form-field">
         <!-- <input matInput (keyup)="applyFilter($event)" id="filtro" placeholder="Filtro"> -->
         <mat-label>Pesquise por um painel ou por um tema</mat-label>
         <span matPrefix>

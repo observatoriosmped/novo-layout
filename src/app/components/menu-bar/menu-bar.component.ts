@@ -20,6 +20,7 @@ export class MenuBarComponent implements OnInit {
   async focus(){
     await this.delay(500);
     document.getElementsByTagName("h2")[0].focus();
+    console.log(document.getElementsByTagName("h2")[0])
   }
 
 }
