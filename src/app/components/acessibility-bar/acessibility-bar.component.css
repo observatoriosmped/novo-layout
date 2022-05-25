@@ -43,7 +43,9 @@
 li {
     display: inline;
     float: left;
-    width: 230px;
+    min-width: 14vw;
+    width: fit-content;
+    max-width: 230px;
     padding-top: 5px;
     padding-bottom: 5px;
     text-align: center;

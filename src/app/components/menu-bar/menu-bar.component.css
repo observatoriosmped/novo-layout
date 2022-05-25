@@ -16,7 +16,9 @@
 li {
     display: inline;
     float: left;
-    width: 230px;
+    min-width: 13vw;
+    width: fit-content;
+    max-width: 230px;
     padding-top: 28px;
     text-align: center;
 }
