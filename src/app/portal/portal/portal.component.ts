@@ -8,12 +8,15 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { A11yModule } from '@angular/cdk/a11y';
 
+import {GrafanaDashsService} from '../../grafana-dashs.service'
+
 @Component({
   selector: 'app-portal',
   templateUrl: './portal.component.html',
   styleUrls: ['./portal.component.scss', './portal.component.css']
 })
 export class PortalComponent implements OnInit {
+
 
   public divsArray = document.getElementsByTagName('div');
   public psArray = document.getElementsByTagName('p');
@@ -26,8 +29,14 @@ export class PortalComponent implements OnInit {
   public paineisDataSource = new MatTableDataSource<IPainel>();
   public data$: BehaviorSubject<any> = new BehaviorSubject([]);
   public classe = 'big';
+  public dataGrafana: any
 
-  constructor(private location: Location, private painelService: PainelService, private scroll: ViewportScroller, private router: Router) { }
+  constructor(private location: Location, private painelService: PainelService,
+     private scroll: ViewportScroller, private router: Router, private GrafanaDashs:GrafanaDashsService) {
+      this.GrafanaDashs.getData().subscribe(data=>{
+        this.dataGrafana = data
+      })
+    }
 
   async ngOnInit() {
 

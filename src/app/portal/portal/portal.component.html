@@ -19,6 +19,18 @@
       </mat-form-field>
     </div>
     <div class="lista-paineis-content" column>
+
+
+      <div class="grid-list" id="conteudo" isFocusable *ngIf="dataGrafana.length != 0">
+        <mat-card cdkMonitorSubtreeFocus class="painel-card" *ngFor="let dash of dataGrafana" id="{{dash.title}}" [routerLink]="['/dash', dash.url + '&' + dash.title]" (keypress)="irPainel($event)">
+          <mat-card-header class="header">
+            <mat-card-title><h3 [attr.aria-label]="dash.title" aria-hidden="false">{{ dash.title | slice:0:45 }}{{ dash.title.length > 45 ? '...' : '' }}</h3></mat-card-title>
+            <mat-icon alt="painel">dashboard</mat-icon>
+          </mat-card-header>
+        </mat-card>
+      </div>
+
+
       <div class="grid-list" id="conteudo" isFocusable *ngIf="paineisDataSource.filteredData.length != 0">
           <mat-card cdkMonitorSubtreeFocus class="painel-card" *ngFor="let painel of paineisDataSource.filteredData" id="{{painel.titulo}}" [routerLink]="[painel.id]" (keypress)="irPainel($event)">
             <mat-card-header class="header">
@@ -32,9 +44,13 @@
             </div>
           </mat-card>
       </div>
-      <div class="sem-resposta" *ngIf="paineisDataSource.filteredData.length == 0">
+
+
+      <div class="sem-resposta" *ngIf="paineisDataSource.filteredData.length == 0 && dataGrafana.length == 0">
         <div class="img"><img src="assets/notfound.png"></div>
         <p>Nenhum resultado foi encontrado</p>
       </div>
+
+
     </div>
 </div>

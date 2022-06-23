@@ -15,7 +15,7 @@ export class PrintLayoutComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    timer(3000).subscribe(() => this.printService.onDataReady());
+    timer(2000).subscribe(() => this.printService.onDataReady());
   }
 
 }
