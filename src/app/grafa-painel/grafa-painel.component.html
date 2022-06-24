@@ -2,15 +2,13 @@
     <div id="titulo">
         <h2 tabindex="0">{{ title }}</h2>
     </div>  
-    <div id="text">    
-            <div class="botaoVoltar">
-                <button class="botaoVoltarProprio" routerLink="/paineis">Voltar</button>
-                <br>
-            </div>  
-            <br>
-            <br>            
-    </div>
+    <div class="botaoVoltar">
+        <button class="botaoVoltarProprio" routerLink="/paineis">Voltar</button>
+        <br>
+        <br>
+        <br>
+    </div>  
     <div id="graficos">
-        <iframe [src]="safeSrc" width="100%" height="1000" frameborder="0"></iframe>
+        <iframe [src]="safeSrc" width="100%" height="750" frameborder="0"></iframe>
     </div>
 </div>
