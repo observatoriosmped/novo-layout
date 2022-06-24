@@ -26,7 +26,7 @@ export class GrafaPainelComponent implements OnInit {
     this.separator = this.id.indexOf("&")
     this.url = this.id.slice(2, this.separator)
     this.title = this.id.slice(this.separator + 1, this.id.length)
-    this.source = "https://539a-143-107-167-161.sa.ngrok.io/d-solo" + this.url + "?orgId=1&from=1655735341322&to=1655756941322&panelId=2"
+    this.source = "https://539a-143-107-167-161.sa.ngrok.io/d" + this.url + "?orgId=1&from=1655735341322&to=1655756941322&panelId=2" + "&kiosk=true"
     this.safeSrc =  this.sanitizer.bypassSecurityTrustResourceUrl(this.source)
     console.log(this.safeSrc)
   }
