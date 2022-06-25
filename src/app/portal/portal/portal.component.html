@@ -27,6 +27,12 @@
             <mat-card-title><h3 [attr.aria-label]="dash.title" aria-hidden="false">{{ dash.title | slice:0:45 }}{{ dash.title.length > 45 ? '...' : '' }}</h3></mat-card-title>
             <mat-icon alt="painel">dashboard</mat-icon>
           </mat-card-header>
+          <div class="content">
+            <span> {{ loadDescription(dash.uid) }} </span>
+            <div class="tema"><span>Tema: {{detailsGrafana.meta.folderTitle | slice:0:60}} {{ detailsGrafana.meta.folderTitle.length > 60 ? '...' : '' }}</span></div>
+            <div class="descricao"><span>{{ detailsGrafana.dashboard.description | slice:0:400 }} {{ detailsGrafana.dashboard.description.length > 400 ? '...' : '' }}</span></div>
+            <div class="autor"><span>Publicado por {{ detailsGrafana.meta.updatedBy | slice:0:50}} {{ detailsGrafana.meta.updatedBy.length > 50 ? '...' : '' }}</span></div>
+          </div>
         </mat-card>
       </div>
 
@@ -38,7 +44,7 @@
               <mat-icon alt="painel">dashboard</mat-icon>
             </mat-card-header>
             <div class="content">
-              <div class="tema"><span>{{painel.tema | slice:0:60}} {{ painel.tema.length > 60 ? '...' : '' }}</span></div>
+              <div class="tema"><span>Tema: {{painel.tema | slice:0:60}} {{ painel.tema.length > 60 ? '...' : '' }}</span></div>
               <div class="descricao"><span>{{painel.descricao | slice:0:400 }} {{ painel.descricao.length > 400 ? '...' : '' }}</span></div>
               <div class="autor"><span>Publicado por {{painel.autor | slice:0:50}} {{ painel.autor.length > 50 ? '...' : '' }}</span></div>
             </div>

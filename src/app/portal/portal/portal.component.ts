@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, Injectable, OnInit} from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, HostListener, Injectable, OnInit} from '@angular/core';
 import { Location, ViewportScroller } from '@angular/common';
 import { BehaviorSubject } from 'rxjs';
 import { take, first } from 'rxjs/operators';
@@ -9,14 +9,18 @@ import { Router } from '@angular/router';
 import { A11yModule } from '@angular/cdk/a11y';
 
 import {GrafanaDashsService} from '../../grafana-dashs.service'
+import {DashDescriptionService} from '../../dash-description.service'
 
 @Component({
   selector: 'app-portal',
+  template: `Number of ticks: {{numberOfTicks}}`,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './portal.component.html',
   styleUrls: ['./portal.component.scss', './portal.component.css']
 })
 export class PortalComponent implements OnInit {
 
+  numberOfTicks = 0;
 
   public divsArray = document.getElementsByTagName('div');
   public psArray = document.getElementsByTagName('p');
@@ -30,9 +34,15 @@ export class PortalComponent implements OnInit {
   public data$: BehaviorSubject<any> = new BehaviorSubject([]);
   public classe = 'big';
   public dataGrafana: any
+  public detailsGrafana: any
 
   constructor(private location: Location, private painelService: PainelService,
-     private scroll: ViewportScroller, private router: Router, private GrafanaDashs:GrafanaDashsService) {
+     private scroll: ViewportScroller, private router: Router, private GrafanaDashs:GrafanaDashsService, private DetailsGrafana:DashDescriptionService,
+     private ref: ChangeDetectorRef ) {
+      setInterval(() => {
+        this.numberOfTicks++;
+        this.ref.markForCheck();
+      }, 1000);
       this.GrafanaDashs.getData().subscribe(data=>{
         this.dataGrafana = data
       })
@@ -167,6 +177,12 @@ export class PortalComponent implements OnInit {
 
   voltarNavegacao() {
     this.location.back();
+  }
+
+  loadDescription(uid: string){
+    this.DetailsGrafana.getDescription(uid).subscribe(data=>{
+      this.detailsGrafana = data
+    })
   }
 
   irPainel(e: KeyboardEvent){
