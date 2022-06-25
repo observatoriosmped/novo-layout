@@ -24,14 +24,14 @@
       <div class="grid-list" id="conteudo" isFocusable *ngIf="dataGrafana.length != 0">
         <mat-card cdkMonitorSubtreeFocus class="painel-card" *ngFor="let dash of dataGrafana" id="{{dash.title}}" [routerLink]="['/dash', dash.url + '&' + dash.title]" (keypress)="irPainel($event)">
           <mat-card-header class="header">
-            <mat-card-title><h3 [attr.aria-label]="dash.title" aria-hidden="false">{{ dash.title | slice:0:45 }}{{ dash.title.length > 45 ? '...' : '' }}</h3></mat-card-title>
+            <mat-card-title><h3 [attr.aria-label]="dash.title" aria-hidden="false">{{ dash.title | slice:0:45 }}</h3></mat-card-title>
             <mat-icon alt="painel">dashboard</mat-icon>
           </mat-card-header>
           <div class="content">
             <span> {{ loadDescription(dash.uid) }} </span>
-            <div class="tema"><span>Tema: {{detailsGrafana.meta.folderTitle | slice:0:60}} {{ detailsGrafana.meta.folderTitle.length > 60 ? '...' : '' }}</span></div>
-            <div class="descricao"><span>{{ detailsGrafana.dashboard.description | slice:0:400 }} {{ detailsGrafana.dashboard.description.length > 400 ? '...' : '' }}</span></div>
-            <div class="autor"><span>Publicado por {{ detailsGrafana.meta.updatedBy | slice:0:50}} {{ detailsGrafana.meta.updatedBy.length > 50 ? '...' : '' }}</span></div>
+            <div class="tema"><span>Tema: {{detailsGrafana.meta.folderTitle | slice:0:60}} </span></div>
+            <div class="descricao"><span>{{ detailsGrafana.dashboard.description | slice:0:400 }}</span></div>
+            <div class="autor"><span>Publicado por {{ detailsGrafana.meta.updatedBy | slice:0:50}} </span></div>
           </div>
         </mat-card>
       </div>

@@ -39,17 +39,18 @@ export class PortalComponent implements OnInit {
   constructor(private location: Location, private painelService: PainelService,
      private scroll: ViewportScroller, private router: Router, private GrafanaDashs:GrafanaDashsService, private DetailsGrafana:DashDescriptionService,
      private ref: ChangeDetectorRef ) {
-      setInterval(() => {
-        this.numberOfTicks++;
-        this.ref.markForCheck();
-      }, 1000);
       this.GrafanaDashs.getData().subscribe(data=>{
         this.dataGrafana = data
       })
+
+      setInterval(() => {
+        this.numberOfTicks++;
+        this.ref.markForCheck();
+      }, 3000);
     }
 
   async ngOnInit() {
-
+    
 
     var bench = document.getElementById('bench')
     if (bench.style.backgroundColor === 'black') {
