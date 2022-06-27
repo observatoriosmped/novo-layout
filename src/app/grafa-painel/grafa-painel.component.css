@@ -25,12 +25,48 @@ h2{
     line-height: 46px;
 }
 
-#text {
+.text {
     margin-left: 25%;
     margin-right: 25%;
     margin-top: 60px;
     margin-bottom: 60px;
     text-align: center;
+}
+
+#text2 {
+    margin-left: 8%;
+    margin-right: 8%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    align-items: left;
+}
+
+#titulo-valor {
+    font-size: 28px;
+    font-weight: normal;
+}
+
+#autor-valor {
+    font-size: 20px;
+    font-weight:lighter;
+}
+
+#descricao-valor {
+    font-size: 24px;
+    font-weight:normal;
+}
+
+
+#titulo-panel-valor {
+    text-align: left;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#descricao-panel-valor {
+    text-align: left;
+    margin-left: 10px;
+    font-size: 14px;
 }
 
 p {
@@ -45,6 +81,7 @@ p {
 .botaoVoltar {
     text-align: left;
     font-size: 20;  
+    margin-left: 8%;
 }
 
 .botaoVoltarProprio{
@@ -66,5 +103,6 @@ p {
 
 #graficos {
     align-items: center;
+    text-align: center;
 }
 

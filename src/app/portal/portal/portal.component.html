@@ -21,22 +21,6 @@
     <div class="lista-paineis-content" column>
 
 
-      <div class="grid-list" id="conteudo" isFocusable *ngIf="dataGrafana.length != 0">
-        <mat-card cdkMonitorSubtreeFocus class="painel-card" *ngFor="let dash of dataGrafana" id="{{dash.title}}" [routerLink]="['/dash', dash.url + '&' + dash.title]" (keypress)="irPainel($event)">
-          <mat-card-header class="header">
-            <mat-card-title><h3 [attr.aria-label]="dash.title" aria-hidden="false">{{ dash.title | slice:0:45 }}</h3></mat-card-title>
-            <mat-icon alt="painel">dashboard</mat-icon>
-          </mat-card-header>
-          <div class="content">
-            <span> {{ loadDescription(dash.uid) }} </span>
-            <div class="tema"><span>Tema: {{detailsGrafana.meta.folderTitle | slice:0:60}} </span></div>
-            <div class="descricao"><span>{{ detailsGrafana.dashboard.description | slice:0:400 }}</span></div>
-            <div class="autor"><span>Publicado por {{ detailsGrafana.meta.updatedBy | slice:0:50}} </span></div>
-          </div>
-        </mat-card>
-      </div>
-
-
       <div class="grid-list" id="conteudo" isFocusable *ngIf="paineisDataSource.filteredData.length != 0">
           <mat-card cdkMonitorSubtreeFocus class="painel-card" *ngFor="let painel of paineisDataSource.filteredData" id="{{painel.titulo}}" [routerLink]="[painel.id]" (keypress)="irPainel($event)">
             <mat-card-header class="header">
@@ -49,6 +33,22 @@
               <div class="autor"><span>Publicado por {{painel.autor | slice:0:50}} {{ painel.autor.length > 50 ? '...' : '' }}</span></div>
             </div>
           </mat-card>
+      </div>
+
+      <hr id="barrinha">
+
+      <div class="grid-list" id="conteudo" isFocusable *ngIf="dataGrafana.length != 0">
+        <mat-card cdkMonitorSubtreeFocus class="painel-card" *ngFor="let dash of multipleDetails" id="{{dash.dashboard.title}}" [routerLink]="['/dash', dash.dashboard.uid+ '@@' + dash.meta.url + '&' + dash.dashboard.title]" (keypress)="irPainel($event)">
+          <mat-card-header class="header">
+            <mat-card-title><h3 [attr.aria-label]="dash.dashboard.title" aria-hidden="false">{{ dash.dashboard.title | slice:0:60 }}</h3></mat-card-title>
+            <mat-icon alt="painel">dashboard</mat-icon>
+          </mat-card-header>
+          <div class="content">
+            <div class="tema"><span>Tema: {{ dash.meta.folderTitle | slice:0:80}} </span></div>
+            <div class="descricao"><span>{{ dash.dashboard.description | slice:0:400 }} </span></div>
+            <div class="autor"><span>Publicado por {{ dash.meta.updatedBy | slice:0:50}} </span></div>
+          </div>
+        </mat-card>
       </div>
 
 

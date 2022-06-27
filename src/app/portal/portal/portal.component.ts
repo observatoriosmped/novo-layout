@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, HostListener, Injectable, OnInit} from '@angular/core';
 import { Location, ViewportScroller } from '@angular/common';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, range } from 'rxjs';
 import { take, first } from 'rxjs/operators';
 import { IPainel } from '../models/painel.model';
 import { PainelService } from '../services/painel.service';
@@ -35,22 +35,42 @@ export class PortalComponent implements OnInit {
   public classe = 'big';
   public dataGrafana: any
   public detailsGrafana: any
+  public multipleDetails = []
+  public toRenderData = []
 
   constructor(private location: Location, private painelService: PainelService,
-     private scroll: ViewportScroller, private router: Router, private GrafanaDashs:GrafanaDashsService, private DetailsGrafana:DashDescriptionService,
+     private scroll: ViewportScroller, 
+     private router: Router, 
+     private GrafanaDashs:GrafanaDashsService, 
+     private DetailsGrafana:DashDescriptionService,
      private ref: ChangeDetectorRef ) {
+
       this.GrafanaDashs.getData().subscribe(data=>{
         this.dataGrafana = data
+        if (data){
+          for (let i = 0; i < this.dataGrafana.length; i++){
+            if (data[i] != undefined){
+              this.DetailsGrafana.getDescription(this.dataGrafana[i].uid).subscribe(data2=>{
+                this.multipleDetails.push(data2)
+              })    
+              //this.multipleDetails.push(row)
+              console.log(this.multipleDetails)
+            }
+          }
+        }
       })
 
       setInterval(() => {
         this.numberOfTicks++;
         this.ref.markForCheck();
       }, 3000);
+
+
     }
 
   async ngOnInit() {
     
+
 
     var bench = document.getElementById('bench')
     if (bench.style.backgroundColor === 'black') {
@@ -180,11 +200,25 @@ export class PortalComponent implements OnInit {
     this.location.back();
   }
 
-  loadDescription(uid: string){
-    this.DetailsGrafana.getDescription(uid).subscribe(data=>{
-      this.detailsGrafana = data
-    })
-  }
+  //loadDescription(){
+  //  if (this.dataGrafana){
+  //    for (let i = 0; i < this.dataGrafana.length; i++){
+  //      if (this.dataGrafana[i] != undefined){
+  //        var row = []
+  //        row.push(this.dataGrafana[i].title)
+  //        row.push(this.dataGrafana[i].url)
+  //        row.push(this.dataGrafana[i].uid)
+  //        this.DetailsGrafana.getDescription(this.dataGrafana[i].uid).subscribe(data=>{
+  //          row.push(data)
+  //        })    
+  //        console.log("ROW", row)
+  //        this.multipleDetails.push(row)
+  //        row = []
+  //      }
+  //    }
+  //    //console.log(this.multipleDetails)
+  //  }
+  //}
 
   irPainel(e: KeyboardEvent){
     document.getElementById(document.activeElement.id).click();

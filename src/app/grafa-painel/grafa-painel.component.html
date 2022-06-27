@@ -1,14 +1,20 @@
 <div id="pginicial">
+    <div class="botaoVoltar">
+        <button class="botaoVoltarProprio" routerLink="/paineis">Voltar</button>
+    </div>  
     <div id="titulo">
         <h2 tabindex="0">{{ title }}</h2>
     </div>  
-    <div class="botaoVoltar">
-        <button class="botaoVoltarProprio" routerLink="/paineis">Voltar</button>
-        <br>
-        <br>
-        <br>
-    </div>  
+    <div class="text">   
+            <p id="titulo-valor">Tema: {{description[0].meta.folderTitle}}</p> 
+            <p id="autor-valor">Autor: {{description[0].meta.updatedBy}}</p> 
+            <p id="descricao-valor">{{description[0].dashboard.description}}</p> 
+    </div>
     <div id="graficos">
-        <iframe [src]="safeSrc" width="100%" height="750" frameborder="0"></iframe>
+        <iframe id="myIframe" [src]="safeSrc" width="90%" height="800" frameborder="0"></iframe>
+    </div>
+    <div id="text2" *ngFor="let panel of description[0].dashboard.panels">   
+            <p id="titulo-panel-valor">Título: {{panel.title}}</p>    
+            <p id="descricao-panel-valor">Descrição: {{panel.description}}</p> 
     </div>
 </div>
