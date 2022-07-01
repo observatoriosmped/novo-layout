@@ -1,12 +1,14 @@
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
+import { delay } from 'rxjs/operators';
 import { AcessibilityBarComponent } from '../acessibility-bar/acessibility-bar.component';
 
 @Component({
-  selector: 'app-contato-content',
-  templateUrl: './contato-content.component.html',
-  styleUrls: ['./contato-content.component.css']
+  selector: 'app-ajuda-content',
+  templateUrl: './ajuda-content.component.html',
+  styleUrls: ['./ajuda-content.component.css']
 })
-export class ContatoContentComponent implements OnInit {
+export class AjudaContentComponent implements OnInit {
 
   public divsArray = document.getElementsByTagName('div');
   public psArray = document.getElementsByTagName('p');
@@ -15,9 +17,23 @@ export class ContatoContentComponent implements OnInit {
   public asArray = document.getElementsByTagName('a');
   public ulsArray = document.getElementsByTagName ('ul');
 
-  constructor (private acessibilityBarComponent: AcessibilityBarComponent) {}
+  acessoMobile = false;
 
-  ngOnInit(): void {    
+  constructor (private acessibilityBarComponent: AcessibilityBarComponent, private responsive: BreakpointObserver) {}
+
+  ngOnInit(): void {
+
+    this.responsive.observe(Breakpoints.HandsetPortrait).subscribe
+    (result =>{
+      
+      this.acessoMobile = false;
+
+      if(result.matches){
+        this.acessoMobile = true;
+        console.log(this.acessoMobile);
+      }
+    });
+
     var bench = document.getElementById('bench')
     if (bench.style.backgroundColor === 'black') {
       for (let div of this.divsArray){

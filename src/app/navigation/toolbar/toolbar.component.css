@@ -1,8 +1,16 @@
+
+
 #toolbar-principal {
     background-color: #FFFFFF;
     color: #1C2E8A;
     height: 200px;
     position: relative;
+}
+
+#toolbar-principal.mobile {
+    background-color: #FFFFFF;
+    color: #1C2E8A;
+    height: 200px;
 }
 
 #title {
@@ -20,3 +28,20 @@ h1{
 .logo {
     height: 180px;
 }
+
+.logo.mobile{
+    height: 200px;
+}
+
+.logoPref.mobile{
+    height: 55px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.logoPref {
+    height: 180px;
+}
+
+

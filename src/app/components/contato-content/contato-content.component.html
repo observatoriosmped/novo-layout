@@ -1,13 +1,10 @@
 <div id="pginicial">
-    <div id="titulo">
-        <h2  tabindex="0">Contato</h2>
+    <div id="titulo" [ngClass]="{'mobile': acessoMobile}">
+        <h2 [ngClass]="{'mobile': acessoMobile}" tabindex="0" >Ajuda</h2>
     </div>
-    <div id="text">
-        <p  tabindex="0" id="frstLine">
-            Qualquer dúvida ou sugestão, entre em contato pelo e-mail:</p>
-        <p>    
-        <a  tabindex="0">
-            observatorio.smped@prefeitura.sp.gov.br
-        </a>
-    </div>
+    <br>    
+    <div id="text" [ngClass]="{'mobile': acessoMobile}">
+        <p [ngClass]="{'mobile': acessoMobile}" tabindex="0">
+            Caso esteja com dificuldade, assista esse vídeo para utilizar o Portal do Observatório:</p>
+    </div>    
 </div>

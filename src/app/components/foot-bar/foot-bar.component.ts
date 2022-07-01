@@ -1,3 +1,4 @@
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FootBarComponent implements OnInit {
 
-  constructor() { }
+  acessoMobile = false;
+
+  constructor(private responsive: BreakpointObserver) { }
 
   ngOnInit(): void {
-  }
+    this.responsive.observe(Breakpoints.HandsetPortrait).subscribe
+    (result =>{
+      
+      this.acessoMobile = false;
 
+      if(result.matches){
+        this.acessoMobile = true;
+        console.log(this.acessoMobile);
+      }
+    });
+  }
 }
