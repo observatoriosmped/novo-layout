@@ -1,14 +1,13 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
-import { delay } from 'rxjs/operators';
 import { AcessibilityBarComponent } from '../acessibility-bar/acessibility-bar.component';
 
 @Component({
-  selector: 'app-ajuda-content',
-  templateUrl: './ajuda-content.component.html',
-  styleUrls: ['./ajuda-content.component.css']
+  selector: 'app-contato-content',
+  templateUrl: './contato-content.component.html',
+  styleUrls: ['./contato-content.component.css']
 })
-export class AjudaContentComponent implements OnInit {
+export class ContatoContentComponent implements OnInit {
 
   public divsArray = document.getElementsByTagName('div');
   public psArray = document.getElementsByTagName('p');
@@ -22,7 +21,6 @@ export class AjudaContentComponent implements OnInit {
   constructor (private acessibilityBarComponent: AcessibilityBarComponent, private responsive: BreakpointObserver) {}
 
   ngOnInit(): void {
-
     this.responsive.observe(Breakpoints.HandsetPortrait).subscribe
     (result =>{
       
