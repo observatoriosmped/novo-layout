@@ -13,6 +13,10 @@
     align-content: center;
 }
 
+#principal{
+    font-size: 24px;
+}
+
 .barra{
     margin-left: auto;
     margin-right: auto;
@@ -21,24 +25,16 @@
 li {
     display: inline;
     float: left;
-    width: 230px;
+    min-width: 13vw;
+    width: fit-content;
+    max-width: 230px;
     padding-top: 28px;
     text-align: center;
 }
 
-list a{
-    display: inline-block;
-    text-decoration: none !important;
-}
-
-ul{
-    text-decoration: none !important;
-    padding-inline-start: 0px !important;
-}
-
 .botao-menu {
     color: #FFFFFF; 
-    font-size: 15px;
+    font-size: 18px;
     font-weight: bold;
     list-style-type: none;
     padding-top: 15px;
@@ -46,8 +42,9 @@ ul{
     text-align: center;
 }
 
-#principal{
-    font-size: 24px;
+list a{
+    display: inline-block;
+    text-decoration: none !important;
 }
 
 a:link {
