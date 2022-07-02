@@ -1,15 +1,15 @@
 <div class="container" id="general-container"> 
-  <div id="titulo">
-    <h2 tabindex="0">Painéis</h2>
+  <div id="titulo" [ngClass]="{'mobile': acessoMobile}">
+    <h2 [ngClass]="{'mobile': acessoMobile}" tabindex="0">Painéis</h2>
   </div>
   <div>
-    <p tabindex="0" id="introducao">
+    <p [ngClass]="{'mobile': acessoMobile}" tabindex="0" id="introducao">
       Os painéis são análises de dados e indicadores que o Observatório elabora através de cruzamentos de informações qualitativas e quantitativas compartilhadas com a Secretaria Municipal da Pessoa com Deficiência.
     </p>
   </div>
   <div class="lista-paineis">     
     <div class="pesquisa {{classe}}">
-      <mat-form-field id="matform" class="form-field">
+      <mat-form-field id="matform" class="form-field" [ngClass]="{'mobile': acessoMobile}">
         <!-- <input matInput (keyup)="applyFilter($event)" id="filtro" placeholder="Filtro"> -->
         <mat-label>Pesquise por um painel ou por um tema</mat-label>
         <span matPrefix>
@@ -19,44 +19,22 @@
       </mat-form-field>
     </div>
     <div class="lista-paineis-content" column>
-
-
-      <div class="grid-list" id="conteudo" isFocusable *ngIf="paineisDataSource.filteredData.length != 0">
+      <div class="grid-list" id="conteudo" [ngClass]="{'mobile': acessoMobile}" isFocusable *ngIf="paineisDataSource.filteredData.length != 0">
           <mat-card cdkMonitorSubtreeFocus class="painel-card" *ngFor="let painel of paineisDataSource.filteredData" id="{{painel.titulo}}" [routerLink]="[painel.id]" (keypress)="irPainel($event)">
             <mat-card-header class="header">
               <mat-card-title><h3 [attr.aria-label]="painel.titulo" aria-hidden="false">{{ painel.titulo | slice:0:45 }}{{ painel.titulo.length > 45 ? '...' : '' }}</h3></mat-card-title>
               <mat-icon alt="painel">dashboard</mat-icon>
             </mat-card-header>
             <div class="content">
-              <div class="tema"><span>Tema: {{painel.tema | slice:0:60}} {{ painel.tema.length > 60 ? '...' : '' }}</span></div>
+              <div class="tema"><span>{{painel.tema | slice:0:60}} {{ painel.tema.length > 60 ? '...' : '' }}</span></div>
               <div class="descricao"><span>{{painel.descricao | slice:0:400 }} {{ painel.descricao.length > 400 ? '...' : '' }}</span></div>
               <div class="autor"><span>Publicado por {{painel.autor | slice:0:50}} {{ painel.autor.length > 50 ? '...' : '' }}</span></div>
             </div>
           </mat-card>
       </div>
-
-      <hr id="barrinha">
-
-      <div class="grid-list" id="conteudo" isFocusable *ngIf="dataGrafana.length != 0">
-        <mat-card cdkMonitorSubtreeFocus class="painel-card" *ngFor="let dash of multipleDetails" id="{{dash.dashboard.title}}" [routerLink]="['/dash', dash.dashboard.uid+ '@@' + dash.meta.url + '&' + dash.dashboard.title]" (keypress)="irPainel($event)">
-          <mat-card-header class="header">
-            <mat-card-title><h3 [attr.aria-label]="dash.dashboard.title" aria-hidden="false">{{ dash.dashboard.title | slice:0:60 }}</h3></mat-card-title>
-            <mat-icon alt="painel">dashboard</mat-icon>
-          </mat-card-header>
-          <div class="content">
-            <div class="tema"><span>Tema: {{ dash.meta.folderTitle | slice:0:80}} </span></div>
-            <div class="descricao"><span>{{ dash.dashboard.description | slice:0:400 }} </span></div>
-            <div class="autor"><span>Publicado por {{ dash.meta.updatedBy | slice:0:50}} </span></div>
-          </div>
-        </mat-card>
-      </div>
-
-
-      <div class="sem-resposta" *ngIf="paineisDataSource.filteredData.length == 0 && dataGrafana.length == 0">
+      <div class="sem-resposta" *ngIf="paineisDataSource.filteredData.length == 0">
         <div class="img"><img src="assets/notfound.png"></div>
         <p>Nenhum resultado foi encontrado</p>
       </div>
-
-
     </div>
 </div>

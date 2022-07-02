@@ -55,6 +55,23 @@
             }
           }
         }
+
+        .form-field.mobile {
+          width: 300px;
+          font-size: 15px;
+          margin: 0;
+
+          mat-label{
+            color: #333333;
+          }
+
+          span {
+            mat-icon {
+              font-size: 20px;
+              color: #333333;
+            }
+          }
+        }
       }
 
       .small {
