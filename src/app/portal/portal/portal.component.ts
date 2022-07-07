@@ -51,9 +51,9 @@ export class PortalComponent implements OnInit {
           for (let i = 0; i < this.dataGrafana.length; i++){
             if (data[i] != undefined){
               this.DetailsGrafana.getDescription(this.dataGrafana[i].uid).subscribe(data2=>{
-                if (data2.meta.isFolder != true){
+                //if (data2.meta.isFolder != true){
                   this.multipleDetails.push(data2)
-                }
+                //}
                 //this.multipleDetails.push(data2)
               })    
               //this.multipleDetails.push(row)
