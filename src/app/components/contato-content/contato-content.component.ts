@@ -1,3 +1,4 @@
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 import { AcessibilityBarComponent } from '../acessibility-bar/acessibility-bar.component';
 
@@ -15,9 +16,22 @@ export class ContatoContentComponent implements OnInit {
   public asArray = document.getElementsByTagName('a');
   public ulsArray = document.getElementsByTagName ('ul');
 
-  constructor (private acessibilityBarComponent: AcessibilityBarComponent) {}
+  acessoMobile = false;
 
-  ngOnInit(): void {    
+  constructor (private acessibilityBarComponent: AcessibilityBarComponent, private responsive: BreakpointObserver) {}
+
+  ngOnInit(): void {
+    this.responsive.observe(Breakpoints.HandsetPortrait).subscribe
+    (result =>{
+      
+      this.acessoMobile = false;
+
+      if(result.matches){
+        this.acessoMobile = true;
+        console.log(this.acessoMobile);
+      }
+    });
+
     var bench = document.getElementById('bench')
     if (bench.style.backgroundColor === 'black') {
       for (let div of this.divsArray){

@@ -1,5 +1,4 @@
-
-    <aside aria-labelledby="barraacessibilidade">
+    <aside aria-labelledby="barraacessibilidade" *ngIf="!acessoMobile">
       <div id="barraacessibilidade">
         <app-acessibility-bar></app-acessibility-bar>    
       </div>
@@ -24,5 +23,4 @@
       <div id="footbar">
         <app-foot-bar></app-foot-bar>
       </div>
-    </footer>
-
+    </footer> 

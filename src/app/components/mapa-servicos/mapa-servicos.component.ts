@@ -1,3 +1,4 @@
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 import { AcessibilityBarComponent } from '../acessibility-bar/acessibility-bar.component';
 
@@ -8,6 +9,7 @@ import { AcessibilityBarComponent } from '../acessibility-bar/acessibility-bar.c
 })
 export class MapaServicosComponent implements OnInit {
 
+  acessoMobile = false;
   public divsArray = document.getElementsByTagName('div');
   public psArray = document.getElementsByTagName('p');
   public hsArray = document.getElementsByTagName('h1');
@@ -15,9 +17,21 @@ export class MapaServicosComponent implements OnInit {
   public asArray = document.getElementsByTagName('a');
   public ulsArray = document.getElementsByTagName ('ul');
 
-  constructor (private acessibilityBarComponent: AcessibilityBarComponent) {}
+  constructor (private acessibilityBarComponent: AcessibilityBarComponent, private responsive: BreakpointObserver) {}
 
-  ngOnInit(): void {    
+  ngOnInit(): void {
+
+    this.responsive.observe(Breakpoints.HandsetPortrait).subscribe
+    (result =>{
+      
+      this.acessoMobile = false;
+
+      if(result.matches){
+        this.acessoMobile = true;
+        console.log(this.acessoMobile);
+      }
+    });
+
     var bench = document.getElementById('bench')
     if (bench.style.backgroundColor === 'black') {
       for (let div of this.divsArray){

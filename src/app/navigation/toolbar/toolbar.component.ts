@@ -3,6 +3,7 @@ import { Component, ElementRef, OnChanges, OnInit, ViewChild } from '@angular/co
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { AcessibilidadeDialogComponent } from 'src/app/portal/acessibilidade-dialog/acessibilidade-dialog.component';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-toolbar',
@@ -11,6 +12,7 @@ import { AcessibilidadeDialogComponent } from 'src/app/portal/acessibilidade-dia
 })
 export class ToolbarComponent implements OnInit {
 
+  acessoMobile = false;
   public loggedIn = false;
   public paginaInicial;
   private contraste = false;
@@ -18,7 +20,7 @@ export class ToolbarComponent implements OnInit {
   public isTabVisivel = 0;
   private isDialogOpen = false;
 
-  constructor(private scroll: ViewportScroller, private router: Router, public dialog: MatDialog, private elementRef: ElementRef) {
+  constructor(private scroll: ViewportScroller, private router: Router, public dialog: MatDialog, private elementRef: ElementRef, private responsive: BreakpointObserver) {
     router.events.subscribe((val) => {
       if (this.router.url === '/paineis') {
         this.isPaginaInicial = true;
@@ -37,6 +39,18 @@ export class ToolbarComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    this.responsive.observe(Breakpoints.HandsetPortrait).subscribe
+    (result =>{
+      
+      this.acessoMobile = false;
+
+      if(result.matches){
+        this.acessoMobile = true;
+        console.log(this.acessoMobile);
+      }
+    });
+
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();

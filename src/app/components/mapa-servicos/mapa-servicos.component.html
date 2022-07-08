@@ -1,13 +1,13 @@
 <div id="pginicial">
-    <div id="titulo">
-        <h2 tabindex="0">Mapa da Rede de Serviços Acessíveis</h2>
+    <div id="titulo" [ngClass]="{'mobile': acessoMobile}">
+        <h2 [ngClass]="{'mobile': acessoMobile}" tabindex="0">Mapa da Rede de Serviços Acessíveis</h2>
     </div>
     <br>
-    <iframe src="https://www.google.com/maps/d/embed?mid=1Iuowv-fzbrNxTssTRVtHYhMKlXk&ehbc=2E312F" width="640" height="480"></iframe>
-    <div  iv id="legenda">
+    <iframe src="https://www.google.com/maps/d/embed?mid=1Iuowv-fzbrNxTssTRVtHYhMKlXk&ehbc=2E312F" width="300" height="480"></iframe>
+    <div  iv id="legenda" [ngClass]="{'mobile': acessoMobile}">
         <p tabindex="0" >O Mapa da Rede de Serviços Acessíveis destaca os equipamentos públicos com acessibilidade da cidade de São Paulo.</p>
     </div>
-    <div id="text">
+    <div id="text" [ngClass]="{'mobile': acessoMobile}">
         <br>
         <p tabindex="0">
             O Mapa da Rede de Serviços Acessíveis é um recurso que apresenta
@@ -52,5 +52,4 @@ objetivo é que cresça cada vez mais e aglomere mais e mais informações, ajud
 na construção de uma cidade mais inclusiva.
         </p>
     </div>
-
 </div>

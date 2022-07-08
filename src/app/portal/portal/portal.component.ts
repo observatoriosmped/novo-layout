@@ -7,6 +7,7 @@ import { PainelService } from '../services/painel.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { A11yModule } from '@angular/cdk/a11y';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 import {GrafanaDashsService} from '../../grafana-dashs.service'
 import {DashDescriptionService} from '../../dash-description.service'
@@ -21,6 +22,7 @@ import {DashDescriptionService} from '../../dash-description.service'
 export class PortalComponent implements OnInit {
 
   numberOfTicks = 0;
+  acessoMobile = true;
 
   public divsArray = document.getElementsByTagName('div');
   public psArray = document.getElementsByTagName('p');
@@ -43,7 +45,8 @@ export class PortalComponent implements OnInit {
      private router: Router, 
      private GrafanaDashs:GrafanaDashsService, 
      private DetailsGrafana:DashDescriptionService,
-     private ref: ChangeDetectorRef ) {
+     private ref: ChangeDetectorRef,
+     private responsive: BreakpointObserver) {
 
       this.GrafanaDashs.getData().subscribe(data=>{
         this.dataGrafana = data
@@ -72,9 +75,18 @@ export class PortalComponent implements OnInit {
     }
 
   async ngOnInit() {
+
+    this.responsive.observe(Breakpoints.HandsetPortrait).subscribe
+    (result =>{
+      
+      this.acessoMobile = false;
+
+      if(result.matches){
+        this.acessoMobile = true;
+        console.log(this.acessoMobile);
+      }
+    });
     
-
-
     var bench = document.getElementById('bench')
     if (bench.style.backgroundColor === 'black') {
       for (let div of this.divsArray){
