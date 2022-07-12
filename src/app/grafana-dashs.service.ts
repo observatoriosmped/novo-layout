@@ -28,9 +28,19 @@ export class GrafanaDashsService {
 //    return this.http.get(url, {headers: headers});    
 //  }
 
-getData()
+//getData()
+//  {
+//    let url="http://localhost:4200/api/search"
+//    const headers = new HttpHeaders({
+//      'Content-Type': 'application/json',
+//      'Authorization': `Bearer eyJrIjoieTFPRWZGb21sWDBUZDd0N1RvZWlvUVB2dk1ieFh2b3EiLCJuIjoib2JzZXJ2YXRvcmlvIiwiaWQiOjF9`
+//    }) 
+//    return this.http.get(url, {headers: headers});    
+//  }
+
+  getData()
   {
-    let url="http://172.18.0.5/api/search"
+    let url="https://observatorio.smped.prefeitura.sp.gov.br/api/search"
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': `Bearer eyJrIjoieTFPRWZGb21sWDBUZDd0N1RvZWlvUVB2dk1ieFh2b3EiLCJuIjoib2JzZXJ2YXRvcmlvIiwiaWQiOjF9`
