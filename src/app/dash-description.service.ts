@@ -34,7 +34,7 @@ export class DashDescriptionService {
 
   getDescription(uid: string)
   {
-    let url="http://localhost:4200/api/dashboards/uid/" + uid
+    let url="http://172.18.0.5/api/dashboards/uid/" + uid
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': `Bearer eyJrIjoieTFPRWZGb21sWDBUZDd0N1RvZWlvUVB2dk1ieFh2b3EiLCJuIjoib2JzZXJ2YXRvcmlvIiwiaWQiOjF9`

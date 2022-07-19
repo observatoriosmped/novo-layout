@@ -8,10 +8,10 @@
     "start-test": "ng serve --configuration=test",
     "start-hmg": "ng serve --configuration=hmg",
     "start-production": "ng serve --port 80 --configuration=production",
-    "build": "ng build",
+    "build": "ng build --proxy-config proxy.config.json",
     "build-test": "ng build --configuration=test",
     "build-hmg": "ng build --configuration=hmg",
-    "build-production": "ng build --configuration=production",
+    "build-production": "ng build --configuration=production --proxy-config proxy.config.json",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
