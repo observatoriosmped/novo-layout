@@ -6,5 +6,8 @@
     <div id="text" [ngClass]="{'mobile': acessoMobile}">
         <p [ngClass]="{'mobile': acessoMobile}" tabindex="0">
             Caso esteja com dificuldade, assista esse vídeo para utilizar o Portal do Observatório:</p>
-    </div>    
+    <br>
+    <iframe *ngIf="!acessoMobile" width="840" height="472" src="https://www.youtube.com/embed/hGvShzSNUyM" title="YouTube video player - vídeo de ajuda" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <iframe *ngIf="acessoMobile" width="350" height="250" src="https://www.youtube.com/embed/hGvShzSNUyM" title="YouTube video player - vídeo de ajuda" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>       
 </div>
