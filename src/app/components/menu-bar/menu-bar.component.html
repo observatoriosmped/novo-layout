@@ -20,7 +20,7 @@
     </tr>
 </table>
 
-<table class="barra" *ngIf="menuClicado">
+<table class="barra" *ngIf="acessoMobile && menuClicado">
     <tr>  
         <td class="botao-menu"><a routerLink="" (click)="focus()" tabindex="0" class="hover" id="pgInicial">Página Inicial</a></td>
     </tr>
