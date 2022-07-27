@@ -11,16 +11,16 @@ export class DashDescriptionService {
 
   safeSrc: SafeResourceUrl;
 
-  //getDescription(uid: string)
-  //{
-  //  let url="http://localhost:3000/api/dashboards/uid/" + uid
-  //  const headers = new HttpHeaders({
-  //    'Content-Type': 'application/json',
-  //    'Authorization': `Bearer eyJrIjoibkVueHpMTzFKcThkcTIwVnB0RVZRMTgxVDR6QUY4aWIiLCJuIjoidGVzdGUiLCJpZCI6MX0=`
-  //  }) 
-  //  this.safeSrc =  this.sanitizer.bypassSecurityTrustResourceUrl(url);
-  //  return this.http.get(url);    
-  //}
+  getDescription(uid: string)
+  {
+  let url="http://localhost:4200/api/dashboards/uid/" + uid
+   const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer eyJrIjoiRmNNOVc1OXhBVHpqNEdTTGM0SHpONkpyWWd2UWQ3NVYiLCJuIjoiVGVzdGUgMiIsImlkIjoxfQ==`
+    }) 
+    this.safeSrc =  this.sanitizer.bypassSecurityTrustResourceUrl(url);
+    return this.http.get(url);    
+  }
 
 //  getDescription(uid: string)
 //  {
@@ -32,7 +32,7 @@ export class DashDescriptionService {
 //    return this.http.get(url, {headers: headers});    
 //  }
 
-  getDescription(uid: string)
+  /*getDescription(uid: string)
   {
     let url="http://172.18.0.5/api/dashboards/uid/" + uid
     const headers = new HttpHeaders({
@@ -40,7 +40,7 @@ export class DashDescriptionService {
       'Authorization': `Bearer eyJrIjoieTFPRWZGb21sWDBUZDd0N1RvZWlvUVB2dk1ieFh2b3EiLCJuIjoib2JzZXJ2YXRvcmlvIiwiaWQiOjF9`
     }) 
     return this.http.get(url, {headers: headers});    
-  }
+  */
 
 
 
