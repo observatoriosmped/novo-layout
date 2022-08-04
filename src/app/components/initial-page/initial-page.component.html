@@ -1,9 +1,9 @@
 <div id="pginicial">
-    <div id="titulo" *ngIf="!acessoMobile">
+    <div id="titulo" *ngIf="!acessoMobile" role="heading">
         <h2 tabindex="0">Bem vindo ao Observatório Municipal da Pessoa com Deficiência</h2>
     </div>
 
-    <div id="titulo-mobile" *ngIf="acessoMobile">
+    <div id="titulo-mobile" *ngIf="acessoMobile" role="heading">
         <h2 tabindex="0" [ngClass]="{'mobile': acessoMobile}">Bem vindo ao Observatório Municipal da Pessoa com Deficiência</h2>
     </div>
 
