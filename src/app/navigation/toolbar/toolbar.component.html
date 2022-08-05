@@ -5,9 +5,10 @@
     </a>
     <a *ngIf="acessoMobile" class="donotchange" tabindex="0" href="https://www.prefeitura.sp.gov.br/cidade/secretarias/pessoa_com_deficiencia/" id="logo-prefeitura">
       <img [ngClass]="{'mobile': acessoMobile}" class="logoPref" src="/assets/Pessoa+com+Deficiência_principal+-+horizontal .png" alt="Secretaria Municipal do Deficiente">
-    </a>  
-    <div class="donotchange" id="title" role="tablist">
-      <h1 *ngIf="!acessoMobile" tabindex="0" role="tab">Observatório Municipal da Pessoa com Deficiência</h1>
+    </a> 
+    <!-- <h1 tabindex="0">Observatório Municipal da Pessoa com Deficiência</h1> -->
+    <div class="donotchange" id="title" *ngIf="!acessoMobile">
+      <h1>Observatório Municipal da Pessoa com Deficiência</h1>
     </div> 
     <div class="donotchange"style="text-align: right; width:70%" *ngIf="!acessoMobile">
       <a class="donotchange" tabindex="0" href="https://www.prefeitura.sp.gov.br/cidade/secretarias/pessoa_com_deficiencia/" id="logo-prefeitura">
