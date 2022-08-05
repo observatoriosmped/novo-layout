@@ -55,31 +55,26 @@ list a{
     display: inline-block; 
 }
 
-.hover2:hover {
-   cursor: pointer; 
-   background-color: #333333;
-   color: #f9f9f9;
-}
-
-.hover3 {
-    color: #FFF;
-}
-
-.hover3:hover {
-    cursor: pointer; 
-    background-color: #FFF;
-    color: #000;
- }
-
-.fontsize:hover{
+.fontsize:hover, .fontsize:focus{
     background-color: #333333 ;
+    border: 7px solid #F00; 
     color: #f9f9f9;
     cursor: pointer;
 }
 
-.fontsize2:hover{
+.fontsize2:hover, .fontsize2:focus{
     background-color: #FFF !important;
     color: #000 !important;
+    border: 7px solid #F00; 
     cursor: pointer;
 }
+
+a:focus, a:hover{
+    cursor: pointer; 
+    background-color: #333333;
+    border: 7px solid #F00; 
+    color: #f9f9f9; 
+}
+
+
   

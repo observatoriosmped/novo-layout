@@ -59,7 +59,6 @@ a:visited {
     text-decoration: none;
   }
 
-  
 .twolines{
     padding-top: 10px !important;
     padding-bottom: 10px !important;
@@ -74,8 +73,9 @@ hover:visited {
     color: #FFFFFF;
 }
 
-.hover:hover {
+.hover:hover, .hover:focus{
     cursor: pointer; 
+    border: 7px solid #F00; 
     background-color: #FFFFFF;
     color: #1C2E8A;
  }
