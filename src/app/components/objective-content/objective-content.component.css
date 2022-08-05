@@ -15,7 +15,7 @@
     text-align: center;
 }
 
-h1{
+h2{
     font-size: 38px;
     color: #1C2E8A;
     font-weight: bolder;
@@ -23,11 +23,11 @@ h1{
     line-height: 46px;
 }
 
-h1.mobile{
+h2.mobile{
     font-size: 25px;
 }
 
-h1:focus, h1:hover{
+h2:focus, h2:hover{
     border: 7px solid #F00; 
 }
 

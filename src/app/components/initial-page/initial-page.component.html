@@ -1,10 +1,10 @@
 <div id="pginicial">
     <div id="titulo" *ngIf="!acessoMobile" role="tablist">
-        <h1 tabindex="0" role="tab">Bem vindo ao Observatório Municipal da Pessoa com Deficiência</h1>
+        <h2 tabindex="0" role="tab">Bem vindo ao Observatório Municipal da Pessoa com Deficiência</h2>
     </div>
 
     <div id="titulo-mobile" *ngIf="acessoMobile" role="tablist">
-        <h1 tabindex="0" role="tab" [ngClass]="{'mobile': acessoMobile}">Bem vindo ao Observatório Municipal da Pessoa com Deficiência</h1>
+        <h2 tabindex="0" role="tab" [ngClass]="{'mobile': acessoMobile}">Bem vindo ao Observatório Municipal da Pessoa com Deficiência</h2>
     </div>
 
     <div id="text" *ngIf="!acessoMobile" role="tablist">

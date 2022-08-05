@@ -52,7 +52,7 @@ li {
 }
 
 list a{
-    display: inline-block; 
+    display: inline-block;
 }
 
 .fontsize:hover, .fontsize:focus{
@@ -69,12 +69,28 @@ list a{
     cursor: pointer;
 }
 
+a{
+    text-decoration: none;
+    color: black;
+}
+
 a:focus, a:hover{
     cursor: pointer; 
     background-color: #333333;
     border: 7px solid #F00; 
     color: #f9f9f9; 
 }
+
+.hover3 {
+    color: #FFF;
+}
+
+.hover3:hover, hover3:focus {
+    cursor: pointer; 
+    background-color: #FFF;
+    border: 7px solid #F00;
+    color: #000;
+ }
 
 
   
