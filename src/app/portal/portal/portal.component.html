@@ -1,9 +1,9 @@
 <div class="container" id="general-container"> 
-  <div id="titulo" [ngClass]="{'mobile': acessoMobile}">
-    <h2 [ngClass]="{'mobile': acessoMobile}" tabindex="0">Painéis</h2>
+  <div id="titulo" [ngClass]="{'mobile': acessoMobile}" role="tablist">
+    <h2 [ngClass]="{'mobile': acessoMobile}" tabindex="0" role="tab">Painéis</h2>
   </div>
-  <div>
-    <p [ngClass]="{'mobile': acessoMobile}" tabindex="0" id="introducao">
+  <div role="tablist">
+    <p [ngClass]="{'mobile': acessoMobile}" tabindex="0" id="introducao" role="tab">
       Os painéis são análises de dados e indicadores que o Observatório elabora através de cruzamentos de informações qualitativas e quantitativas compartilhadas com a Secretaria Municipal da Pessoa com Deficiência.
     </p>
   </div>

@@ -1,20 +1,20 @@
 <div id="pginicial">
-    <div id="titulo" *ngIf="!acessoMobile" role="heading">
-        <h2 tabindex="0">Bem vindo ao Observatório Municipal da Pessoa com Deficiência</h2>
+    <div id="titulo" *ngIf="!acessoMobile" role="tablist">
+        <h2 tabindex="0" role="tab">Bem vindo ao Observatório Municipal da Pessoa com Deficiência</h2>
     </div>
 
-    <div id="titulo-mobile" *ngIf="acessoMobile" role="heading">
-        <h2 tabindex="0" [ngClass]="{'mobile': acessoMobile}">Bem vindo ao Observatório Municipal da Pessoa com Deficiência</h2>
+    <div id="titulo-mobile" *ngIf="acessoMobile" role="tablist">
+        <h2 tabindex="0" role="tab" [ngClass]="{'mobile': acessoMobile}">Bem vindo ao Observatório Municipal da Pessoa com Deficiência</h2>
     </div>
 
-    <div id="text" *ngIf="!acessoMobile" role="article">
-        <p [ngClass]="{'mobile': acessoMobile}" tabindex="0">
+    <div id="text" *ngIf="!acessoMobile" role="tablist">
+        <p [ngClass]="{'mobile': acessoMobile}" tabindex="0" role="tab">
             O Observatório é uma ação da Secretaria Municipal da Pessoa com Deficiência de São Paulo que elabora, centraliza e divulga os dados relativos a pessoas com deficiência e acessibilidade na cidade. Ainda analisa e monitora políticas públicas que atendem pessoas com deficiência.
         </p>
     </div>
 
-    <div id="text-mobile" *ngIf="acessoMobile" role="article">
-        <p [ngClass]="{'mobile': acessoMobile}" tabindex="0">
+    <div id="text-mobile" *ngIf="acessoMobile" role="tablist">
+        <p [ngClass]="{'mobile': acessoMobile}" tabindex="0" role="tab">
             O Observatório é uma ação da Secretaria Municipal da Pessoa com Deficiência de São Paulo que elabora, centraliza e divulga os dados relativos a pessoas com deficiência e acessibilidade na cidade. Ainda analisa e monitora políticas públicas que atendem pessoas com deficiência.
         </p>
     </div>
