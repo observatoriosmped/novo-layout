@@ -27,10 +27,6 @@ h2.mobile{
     font-size: 25px;
 }
 
-h2:focus, h2:hover{
-    border: 7px solid #F00; 
-}
-
 #text {
     margin-left: 25%;
     margin-right: 25%;
@@ -57,8 +53,4 @@ p {
 p.mobile {
     font-size: 20px;
     text-align: justify;
-}
-
-p:focus, p:hover{
-    border: 7px solid #F00; 
 }

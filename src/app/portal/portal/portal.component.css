@@ -67,7 +67,3 @@ h2{
   margin-right: 5%;
   font-size: 20px;
 }
-
-p:focus, p:hover{
-  border: 7px solid #F00; 
-}

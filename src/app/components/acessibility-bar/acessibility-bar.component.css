@@ -57,7 +57,6 @@ list a{
 
 .fontsize:hover, .fontsize:focus{
     background-color: #333333 ;
-    border: 7px solid #F00; 
     color: #f9f9f9;
     cursor: pointer;
 }
@@ -65,7 +64,6 @@ list a{
 .fontsize2:hover, .fontsize2:focus{
     background-color: #FFF !important;
     color: #000 !important;
-    border: 7px solid #F00; 
     cursor: pointer;
 }
 
@@ -77,7 +75,6 @@ a{
 a:focus, a:hover{
     cursor: pointer; 
     background-color: #333333;
-    border: 7px solid #F00; 
     color: #f9f9f9; 
 }
 
@@ -88,7 +85,6 @@ a:focus, a:hover{
 .hover3:hover, hover3:focus {
     cursor: pointer; 
     background-color: #FFF;
-    border: 7px solid #F00;
     color: #000;
  }
 

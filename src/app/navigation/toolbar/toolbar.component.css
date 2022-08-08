@@ -25,28 +25,16 @@ h1{
     white-space: normal; 
 }
 
-h1:focus, h1:hover{
-    border: 7px solid #F00; 
-}
-
-a:focus, a:hover{
-    border: 7px solid #F00; 
-}
-
-img:focus, img:hover{
-    border: 7px solid #F00; 
-}
-
 .logo {
-    height: 180px;
+    height: 150px;
 }
 
 .logo.mobile{
-    height: 200px;
+    height: 180px;
 }
 
 .logoPref.mobile{
-    height: 100px;
+    height: 130px;
     margin-left: auto;
     margin-right: auto;
     display: block;

@@ -75,7 +75,6 @@ hover:visited {
 
 .hover:hover, .hover:focus{
     cursor: pointer; 
-    border: 7px solid #F00; 
     background-color: #FFFFFF;
     color: #1C2E8A;
  }

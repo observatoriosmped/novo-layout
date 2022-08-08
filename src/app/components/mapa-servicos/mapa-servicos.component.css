@@ -31,14 +31,6 @@ h2.mobile{
     margin-bottom: 0px;
 }
 
-h2:focus, h2:hover{
-    border: 7px solid #F00; 
-}
-
-#mapa:focus{
-    border: 20px solid #F00; 
-}
-
 #text {
     margin-left: 25%;
     margin-right: 25%;
@@ -75,8 +67,4 @@ h2:focus, h2:hover{
     margin-left: 5%;
     margin-right: 5%;
     font-size: 14px !important;
-}
-
-p:focus, p:hover{
-    border: 7px solid #F00; 
 }

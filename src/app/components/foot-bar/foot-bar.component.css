@@ -56,10 +56,3 @@ a {
   display: block;
 }
 
-p:focus, p:hover{
-  border: 7px solid #F00; 
-}
-
-a:focus, a:hover{
-  border: 7px solid #F00; 
-}

@@ -24,10 +24,6 @@ h2{
     line-height: 46px;
 }
 
-h2:focus, h2:hover{
-    border: 7px solid #F00; 
-}
-
 h2.mobile{
     font-size: 25px;
 }
@@ -58,8 +54,4 @@ p {
 p.mobile {
     font-size: 20px;
     text-align: justify;
-}
-
-p:focus, p:hover{
-    border: 7px solid #F00; 
 }
