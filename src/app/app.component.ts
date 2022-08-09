@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
   constructor(public printService: PrintService, private responsive: BreakpointObserver) {
   }
   ngOnInit(){
-    this.responsive.observe(Breakpoints.HandsetPortrait).subscribe
+    this.responsive.observe([Breakpoints.HandsetPortrait, Breakpoints.TabletPortrait]).subscribe
     (result =>{
       
       this.acessoMobile = false;

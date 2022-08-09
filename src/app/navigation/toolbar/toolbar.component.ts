@@ -40,14 +40,14 @@ export class ToolbarComponent implements OnInit {
 
   ngOnInit() {
 
-    this.responsive.observe(Breakpoints.HandsetPortrait).subscribe
+    this.responsive.observe([Breakpoints.HandsetPortrait, Breakpoints.TabletPortrait]).subscribe
     (result =>{
       
       this.acessoMobile = false;
 
       if(result.matches){
         this.acessoMobile = true;
-        console.log(this.acessoMobile);
+        console.log(result.matches);
       }
     });
 

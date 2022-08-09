@@ -14,7 +14,7 @@ export class MenuBarComponent implements OnInit {
   constructor(private responsive: BreakpointObserver) { }
 
   ngOnInit(): void {
-    this.responsive.observe(Breakpoints.HandsetPortrait).subscribe
+    this.responsive.observe([Breakpoints.HandsetPortrait, Breakpoints.TabletPortrait]).subscribe
     (result =>{
       
       this.acessoMobile = false;
