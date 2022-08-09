@@ -1,15 +1,15 @@
-    <aside aria-labelledby="barraacessibilidade" *ngIf="!acessoMobile">
+    <aside *ngIf="!acessoMobile" aria-labelledby="barraacessibilidade">
       <div id="barraacessibilidade">
         <app-acessibility-bar></app-acessibility-bar>    
       </div>
     </aside>
     <nav>
-    <div id="barramenu">
+    <header id="barramenu">
       <app-toolbar></app-toolbar>
       <div id="menubar">
         <app-menu-bar></app-menu-bar>
       </div>
-    </div>
+    </header>
     </nav>
     <main>
       <div>
