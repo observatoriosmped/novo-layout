@@ -16,7 +16,7 @@ export class DashDescriptionService {
   let url="http://localhost:3000/api/dashboards/uid/" + uid
    const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': `Bearer eyJrIjoicmNxc1hwUDYwVFljSktiOEpNc3IzOEtCZE1sdkh1OGUiLCJuIjoidGVzdGUiLCJpZCI6MX0=`
+      'Authorization': `Bearer eyJrIjoiSEpBZ3ozQXRRdjRLUklYazRNYXdKclFlb2phWXdMOTUiLCJuIjoidGVzdGUyIiwiaWQiOjF9`
     }) 
     this.safeSrc =  this.sanitizer.bypassSecurityTrustResourceUrl(url);
     return this.http.get(url);    
