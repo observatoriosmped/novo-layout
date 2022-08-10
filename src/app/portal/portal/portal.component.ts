@@ -1,19 +1,28 @@
-import { Component, ElementRef, HostListener, Injectable, OnInit} from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, HostListener, Injectable, OnInit} from '@angular/core';
 import { Location, ViewportScroller } from '@angular/common';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, range } from 'rxjs';
 import { take, first } from 'rxjs/operators';
 import { IPainel } from '../models/painel.model';
 import { PainelService } from '../services/painel.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { A11yModule } from '@angular/cdk/a11y';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+
+import {GrafanaDashsService} from '../../grafana-dashs.service'
+import {DashDescriptionService} from '../../dash-description.service'
 
 @Component({
   selector: 'app-portal',
+  template: `Number of ticks: {{numberOfTicks}}`,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './portal.component.html',
   styleUrls: ['./portal.component.scss', './portal.component.css']
 })
 export class PortalComponent implements OnInit {
+
+  numberOfTicks = 0;
+  acessoMobile = true;
 
   public divsArray = document.getElementsByTagName('div');
   public psArray = document.getElementsByTagName('p');
@@ -26,12 +35,58 @@ export class PortalComponent implements OnInit {
   public paineisDataSource = new MatTableDataSource<IPainel>();
   public data$: BehaviorSubject<any> = new BehaviorSubject([]);
   public classe = 'big';
+  public dataGrafana: any
+  public detailsGrafana: any
+  public multipleDetails = []
+  public toRenderData = []
 
-  constructor(private location: Location, private painelService: PainelService, private scroll: ViewportScroller, private router: Router) { }
+  constructor(private location: Location, private painelService: PainelService,
+     private scroll: ViewportScroller, 
+     private router: Router, 
+     private GrafanaDashs:GrafanaDashsService, 
+     private DetailsGrafana:DashDescriptionService,
+     private ref: ChangeDetectorRef,
+     private responsive: BreakpointObserver) {
+
+      this.GrafanaDashs.getData().subscribe(data=>{
+        this.dataGrafana = data
+        if (data){
+          for (let i = 0; i < this.dataGrafana.length; i++){
+            if (data[i] != undefined){
+              this.DetailsGrafana.getDescription(this.dataGrafana[i].uid).subscribe(data2=>{
+                //if (data2.meta.isFolder != true){
+                  this.multipleDetails.push(data2)
+                //}
+                //this.multipleDetails.push(data2)
+              })    
+              //this.multipleDetails.push(row)
+              console.log(this.multipleDetails)
+            }
+          }
+        }
+      })
+
+      setInterval(() => {
+        this.numberOfTicks++;
+        this.ref.markForCheck();
+      }, 3000);
+
+
+    }
 
   async ngOnInit() {
 
+    this.responsive.observe(Breakpoints.HandsetPortrait).subscribe
+    (result =>{
+      
+      this.acessoMobile = false;
 
+      if(result.matches){
+        this.acessoMobile = true;
+        console.log(this.acessoMobile);
+      }
+    });
+    
     var bench = document.getElementById('bench')
     if (bench.style.backgroundColor === 'black') {
       for (let div of this.divsArray){
@@ -159,6 +214,26 @@ export class PortalComponent implements OnInit {
   voltarNavegacao() {
     this.location.back();
   }
+
+  //loadDescription(){
+  //  if (this.dataGrafana){
+  //    for (let i = 0; i < this.dataGrafana.length; i++){
+  //      if (this.dataGrafana[i] != undefined){
+  //        var row = []
+  //        row.push(this.dataGrafana[i].title)
+  //        row.push(this.dataGrafana[i].url)
+  //        row.push(this.dataGrafana[i].uid)
+  //        this.DetailsGrafana.getDescription(this.dataGrafana[i].uid).subscribe(data=>{
+  //          row.push(data)
+  //        })    
+  //        console.log("ROW", row)
+  //        this.multipleDetails.push(row)
+  //        row = []
+  //      }
+  //    }
+  //    //console.log(this.multipleDetails)
+  //  }
+  //}
 
   irPainel(e: KeyboardEvent){
     document.getElementById(document.activeElement.id).click();

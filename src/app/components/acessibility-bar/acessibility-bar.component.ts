@@ -58,7 +58,7 @@ export class AcessibilityBarComponent {
   } 
 
   irConteudo() {
-    document.getElementById("content").scrollIntoView();
+    document.getElementById("titulo").scrollIntoView();
     document.getElementsByTagName("h2")[0].focus();
   }
 

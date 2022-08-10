@@ -6,6 +6,7 @@ import { ObjectiveContentComponent } from './components/objective-content/object
 import { MapaServicosComponent } from './components/mapa-servicos/mapa-servicos.component';
 import { ContatoContentComponent } from './components/contato-content/contato-content.component';
 import { AjudaContentComponent } from './components/ajuda-content/ajuda-content.component';
+import { GrafaPainelComponent } from './grafa-painel/grafa-painel.component';
 
 
 
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'mapa-rede-servicos-acessiveis', component: MapaServicosComponent },
   { path: 'contatos', component: ContatoContentComponent },
   { path: 'ajuda', component: AjudaContentComponent },
+  { path: 'dash/:id', component: GrafaPainelComponent },
 ];
 
 @NgModule({

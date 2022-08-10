@@ -1,12 +1,12 @@
 <div id="pginicial">
-    <div id="titulo">
-        <h2  tabindex="0">Contato</h2>
+    <div id="titulo" [ngClass]="{'mobile': acessoMobile}" role="tablist">
+        <h2 [ngClass]="{'mobile': acessoMobile}" tabindex="0" role="tab">Contato</h2>
     </div>
-    <div id="text">
-        <p  tabindex="0" id="frstLine">
+    <div id="text" [ngClass]="{'mobile': acessoMobile}" role="tablist">
+        <p  [ngClass]="{'mobile': acessoMobile}" tabindex="0" id="frstLine" role="tab">
             Qualquer dúvida ou sugestão, entre em contato pelo e-mail:</p>
         <p>    
-        <a  tabindex="0">
+        <a  [ngClass]="{'mobile': acessoMobile}" tabindex="0" role="tab">
             observatorio.smped@prefeitura.sp.gov.br
         </a>
     </div>

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PortalComponent } from './portal.component';
+import { GrafaPainelComponent } from './grafa-painel.component';
 
-describe('PortalComponent', () => {
-  let component: PortalComponent;
-  let fixture: ComponentFixture<PortalComponent>;
+describe('GrafaPainelComponent', () => {
+  let component: GrafaPainelComponent;
+  let fixture: ComponentFixture<GrafaPainelComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PortalComponent ]
+      declarations: [ GrafaPainelComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PortalComponent);
+    fixture = TestBed.createComponent(GrafaPainelComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

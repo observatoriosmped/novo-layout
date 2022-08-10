@@ -8,14 +8,27 @@
     text-align: center;
 }
 
+#titulo.mobile {
+    margin-top: 20px;
+    margin-left: 0;
+    margin-right: 0;
+    text-align: center;
+}
+
 h2{
     font-size: 38px;
     color: #1C2E8A;
     font-weight: bolder;
     margin-top: 54px;
-    margin-botton: 54px;
+    margin-bottom: 54px;
     width: 100%;
     line-height: 46px;
+}
+
+h2.mobile{
+    font-size: 25px;
+    color: #1C2E8A;
+    margin-top: 20px;
 }
 
 #text {
@@ -23,6 +36,13 @@ h2{
     margin-right: 25%;
     margin-top: 60px;
     margin-bottom: 60px;
+}
+
+#text.mobile{
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 
 p {
@@ -33,6 +53,15 @@ p {
     font-weight: 500;
 }   
 
+p.mobile {
+    font-size: 20px;
+    text-align: justify;
+}
+
 #frstLine {
     text-align: center;
+}
+
+a.mobile{
+    font-size: 15px;
 }
