@@ -76,11 +76,17 @@
           color: #000;
       }
 
-      #acssblt {
+      #acssblt {  
         text-align: center;
       }
 
       @media (orientation: portrait) and (max-width: 599.98px){
+        #acssblt {
+        display: none;
+        }
+      }
+
+      @media (orientation: portrait) and (min-width: 599.98px) and (max-width: 839.98px){
         #acssblt {
         display: none;
         }

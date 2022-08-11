@@ -10,6 +10,8 @@
 }
 
 #toolbar-principal.mobile {
+    margin-top: 25px !important;
+    margin-bottom: 25px !important;
     background-color: #FFFFFF;
     color: #1C2E8A;
     height: 200px;
@@ -50,6 +52,7 @@ h1{
     justify-content: center;
     align-content: center;
     margin: 0 auto;
+
 }
 
 
