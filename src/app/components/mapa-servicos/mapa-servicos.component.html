@@ -3,11 +3,15 @@
         <h2 [ngClass]="{'mobile': acessoMobile}" tabindex="0" role="tab">Mapa da Rede de Serviços Acessíveis</h2>
     </div>
     <br>
-    <iframe *ngIf="acessoMobile" src="https://www.google.com/maps/d/embed?mid=1Iuowv-fzbrNxTssTRVtHYhMKlXk&ehbc=2E312F" width="300" height="480"></iframe>
-    <iframe title="mapa" *ngIf="!acessoMobile" src="https://www.google.com/maps/d/embed?mid=1Iuowv-fzbrNxTssTRVtHYhMKlXk&ehbc=2E312F" width="640" height="480"></iframe>
+    <iframe tabindex="-1" *ngIf="acessoMobile" src="https://www.google.com/maps/d/embed?mid=1Iuowv-fzbrNxTssTRVtHYhMKlXk&ehbc=2E312F" width="300" height="480"></iframe>
+    <iframe tabindex="-1" title="mapa" *ngIf="!acessoMobile" src="https://www.google.com/maps/d/embed?mid=1Iuowv-fzbrNxTssTRVtHYhMKlXk&ehbc=2E312F" width="640" height="480"></iframe>
     <div  iv id="legenda" [ngClass]="{'mobile': acessoMobile}" role="tablist">
         <p tabindex="0" role="tab">O Mapa da Rede de Serviços Acessíveis destaca os equipamentos públicos com acessibilidade da cidade de São Paulo.</p>
     </div>
+
+    <a tabindex="0" id="download" href="/assets/Mapa de Rede 2022.xlsx" download
+    alt="Botão para realizar o download do arquivo CSV correspondente ao Mapa da Rede de
+    Serviços Acessíveis">Download do arquivo CSV do Mapa da Rede de Serviços Acessíveis</a>
     <div id="text" [ngClass]="{'mobile': acessoMobile}" role="tablist">
         <br>
         <p tabindex="0" role="tab">
