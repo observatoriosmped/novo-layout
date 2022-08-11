@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { MatTableDataSource } from '@angular/material/table'
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 import {DashDescriptionService} from '../dash-description.service'
 
@@ -12,6 +13,7 @@ import {DashDescriptionService} from '../dash-description.service'
 })
 export class GrafaPainelComponent implements OnInit {
 
+  acessoMobile = false;
   public id: string;
   public description = []
   public url: string
@@ -24,7 +26,7 @@ export class GrafaPainelComponent implements OnInit {
   safeSrc: SafeResourceUrl;
   public iframe
 
-  constructor(private route: ActivatedRoute, private sanitizer: DomSanitizer, private DetailsGrafana:DashDescriptionService,) {
+  constructor(private responsive: BreakpointObserver, private route: ActivatedRoute, private sanitizer: DomSanitizer, private DetailsGrafana:DashDescriptionService,) {
     
   }
 
@@ -42,7 +44,18 @@ export class GrafaPainelComponent implements OnInit {
     this.DetailsGrafana.getDescription(this.uid).subscribe(data=>{
       this.description.push(data)
     })
-    document.title=this.title    
+    document.title=this.title   
+    
+    this.responsive.observe([Breakpoints.HandsetPortrait, Breakpoints.TabletPortrait]).subscribe
+    (result =>{
+      
+      this.acessoMobile = false;
+
+      if(result.matches){
+        this.acessoMobile = true;
+        console.log(this.acessoMobile);
+      }
+    });
   }
   
 
