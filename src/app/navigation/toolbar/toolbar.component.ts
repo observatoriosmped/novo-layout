@@ -51,24 +51,24 @@ export class ToolbarComponent implements OnInit {
       }
     });
 
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
+    // document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    //   anchor.addEventListener('click', function (e) {
+    //     e.preventDefault();
 
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-        });
+    //     document.querySelector(this.getAttribute('href')).scrollIntoView({
+    //       behavior: 'smooth'
+    //     });
 
-        document.querySelector(this.getAttribute('href')).click();
-      });
-    });
+    //     document.querySelector(this.getAttribute('href')).click();
+    //   });
+    // });
   }
 
-  irConteudo() {
-    this.scroll.scrollToAnchor("conteudo");
-    (document.querySelector('#conteudo') as HTMLElement)?.focus();
-    (document.querySelector('#conteudo') as HTMLElement)?.click();
-  }
+  // irConteudo() {
+  //   this.scroll.scrollToAnchor("conteudo");
+  //   (document.querySelector('#conteudo') as HTMLElement)?.focus();
+  //   (document.querySelector('#conteudo') as HTMLElement)?.click();
+  // }
 
   irBusca() {
     try {
@@ -129,9 +129,9 @@ export class ToolbarComponent implements OnInit {
     }
   }
 
-  onKeyPressConteudo(e: KeyboardEvent){
-    if(e.keyCode == 13){
-      this.irConteudo();
-    }
-  }
+  // onKeyPressConteudo(e: KeyboardEvent){
+  //   if(e.keyCode == 13){
+  //     this.irConteudo();
+  //   }
+  // }
 }

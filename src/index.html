@@ -98,11 +98,20 @@
       
     <section id="acssblt">
       <ul id="atalhos">
-        <li><a class="td" href="#h2Aqui" accesskey="1">Ir ao Conteudo [alt+1]</a></li>
+        <li><a class="td" onclick="irParaConteudo()" href="#h2Aqui" accesskey="1">Ir ao Conteudo [alt+1]</a></li>
         <li><a class="td" href="#atalho" accesskey="2">Ir ao Menu [alt+2]</a></li>
         <li><a class="td" href="#info" accesskey="3">Ir ao Rodapé [alt+3]</a></li>        
       </ul>
     </section>
+
+    <script>
+      function irParaConteudo(){
+        // document.getElementsByTagName("h2")[0].focus()
+        document.getElementsByTagName("h2")[0].focus();
+        console.log(document.getElementsByTagName("h2")[0]);
+      }
+    </script>
+    <noscript>Seu navegador não tem suporte a JavaScript ou está desativado!</noscript>
 
     <app-root></app-root>
 
