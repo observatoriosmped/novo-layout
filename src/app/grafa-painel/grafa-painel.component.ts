@@ -75,18 +75,24 @@ export class GrafaPainelComponent implements OnInit {
     }
     setTimeout(() => {
       // this.fazerDownload(iframe)
-      let opcoes = iframe.getElementById('reactRoot').getElementsByTagName("li");
-      let botao = opcoes[4].getElementsByTagName("a")[0];
-      console.log(botao);
+      let opcoes = iframe.getElementById('reactRoot').getElementsByClassName("dropdown-item-text");
+      let botao = opcoes[4].getElementsByTagName("div")[0];
       botao.click();
-      this.fazerDownload();
+      this.fazerDownload(iframe);
     }
       ,1000);
   
   }
   
-  fazerDownload(){
-    console.log("Começar o download");
+  fazerDownload(telaGraficos){
+    let botaoFechar = telaGraficos.getElementsByTagName("button")[1];
+    let botaoDownload = telaGraficos.getElementsByTagName("button")[2];
+    botaoDownload.click();
+    setTimeout(()=>{
+      botaoFechar.click();
+      this.menuAberto = false;
+    }, 200);
+    
   }
 }
   
