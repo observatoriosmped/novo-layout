@@ -28,7 +28,6 @@ export class ObjectiveContentComponent implements OnInit {
 
       if(result.matches){
         this.acessoMobile = true;
-        console.log(this.acessoMobile);
       }
     });
 

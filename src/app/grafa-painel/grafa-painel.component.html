@@ -15,7 +15,8 @@
     </div>
     <h3 tabindex="0" [ngClass]="{'mobile': acessoMobile}">Gráficos presentes neste painel: </h3>
     <div id="text2" *ngFor="let panel of description[0].dashboard.panels">   
-            <p id="titulo-panel-valor" tabindex="0">Título: {{panel.title}}</p>    
+            <p id="titulo-panel-valor" tabindex="0">Título: {{panel.title}}</p>
+            <button (click)="abrirMenu(panel.title)">Botão para fazer o download</button>    
             <p id="descricao-panel-valor" tabindex="0">Descrição: {{panel.description}}</p> 
     </div>
 </div>

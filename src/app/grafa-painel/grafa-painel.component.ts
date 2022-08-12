@@ -13,6 +13,7 @@ import {DashDescriptionService} from '../dash-description.service'
 })
 export class GrafaPainelComponent implements OnInit {
 
+  menuAberto = false;
   acessoMobile = false;
   public id: string;
   public description = []
@@ -43,7 +44,6 @@ export class GrafaPainelComponent implements OnInit {
 
     this.DetailsGrafana.getDescription(this.uid).subscribe(data=>{
       this.description.push(data)
-      console.log(data);
     })
     document.title=this.title   
     
@@ -54,12 +54,39 @@ export class GrafaPainelComponent implements OnInit {
 
       if(result.matches){
         this.acessoMobile = true;
-        console.log(this.acessoMobile);
       }
     });
   }
+
+  abrirMenu(botaoClicado){
+    let iframe = document.getElementsByTagName("iframe")[0].contentWindow.document;
+    let target;
+    // iframe contem todo o HTML carregado pelo grafana
+    let graficos = iframe.getElementById('reactRoot').getElementsByTagName("h2");
+    // graficos contem um vetor com os elementos h2 que são os titulos de todos os graficos
+    for(let i = 0; i < graficos.length; i++){
+      if(graficos[i].innerHTML.localeCompare(botaoClicado) == 0){
+        target = graficos[i];
+      }
+    }
+    if(!this.menuAberto){ // abre o menu se este não estiver aberto
+      target.click();
+      this.menuAberto = !this.menuAberto;
+    }
+    setTimeout(() => {
+      // this.fazerDownload(iframe)
+      let opcoes = iframe.getElementById('reactRoot').getElementsByTagName("li");
+      let botao = opcoes[4].getElementsByTagName("a")[0];
+      console.log(botao);
+      botao.click();
+      this.fazerDownload();
+    }
+      ,1000);
   
-
-
-
+  }
+  
+  fazerDownload(){
+    console.log("Começar o download");
+  }
 }
+  
