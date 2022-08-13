@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, HostListener, Injectable, OnInit} from '@angular/core';
 import { Location, ViewportScroller } from '@angular/common';
 import { BehaviorSubject, range } from 'rxjs';
-import { take, first } from 'rxjs/operators';
+import { take, first, filter } from 'rxjs/operators';
 import { IPainel } from '../models/painel.model';
 import { PainelService } from '../services/painel.service';
 import { MatTableDataSource } from '@angular/material/table';
@@ -23,7 +23,6 @@ export class PortalComponent implements OnInit {
 
   numberOfTicks = 0;
   acessoMobile = true;
-
   public divsArray = document.getElementsByTagName('div');
   public psArray = document.getElementsByTagName('p');
   public hsArray = document.getElementsByTagName('h1');
@@ -38,6 +37,7 @@ export class PortalComponent implements OnInit {
   public dataGrafana: any
   public detailsGrafana: any
   public multipleDetails = []
+  public filtrados = [] 
   public toRenderData = []
 
   constructor(private location: Location, private painelService: PainelService,
@@ -56,11 +56,11 @@ export class PortalComponent implements OnInit {
               this.DetailsGrafana.getDescription(this.dataGrafana[i].uid).subscribe(data2=>{
                 //if (data2.meta.isFolder != true){
                   this.multipleDetails.push(data2)
+                  this.filtrados.push(data2)
                 //}
                 //this.multipleDetails.push(data2)
               })    
               //this.multipleDetails.push(row)
-              console.log(this.multipleDetails)
             }
           }
         }
@@ -70,7 +70,6 @@ export class PortalComponent implements OnInit {
         this.numberOfTicks++;
         this.ref.markForCheck();
       }, 3000);
-
 
     }
 
@@ -209,6 +208,11 @@ export class PortalComponent implements OnInit {
     } else {
       this.classe = 'big';
     }
+  }
+
+  filtroGrafana(event: Event){
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.filtrados = this.multipleDetails.filter(x => x.dashboard.title.includes(filterValue));
   }
 
   voltarNavegacao() {
