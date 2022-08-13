@@ -58,6 +58,7 @@ export class GrafaPainelComponent implements OnInit {
     });
   }
 
+  // Botão clicado é a variável que representa o id do botao clicado, retornado via HTML
   abrirMenu(botaoClicado){
     let iframe = document.getElementsByTagName("iframe")[0].contentWindow.document;
     let target;
@@ -73,26 +74,32 @@ export class GrafaPainelComponent implements OnInit {
       target.click();
       this.menuAberto = !this.menuAberto;
     }
+    // Aguardar a operação de abrir o menu, para não buscar os itens vazios
     setTimeout(() => {
-      // this.fazerDownload(iframe)
       let opcoes = iframe.getElementById('reactRoot').getElementsByClassName("dropdown-item-text");
       let botao = opcoes[4].getElementsByTagName("div")[0];
       botao.click();
-      this.fazerDownload(iframe);
+      this.fazerDownload(botaoClicado, iframe);
     }
-      ,1000);
+      ,800);
   
   }
-  
-  fazerDownload(telaGraficos){
+  //Esta funcao é chamada quando o menu inspect do grafana foi aberto
+  fazerDownload(botaoApertado, telaGraficos){
     let botaoFechar = telaGraficos.getElementsByTagName("button")[1];
     let botaoDownload = telaGraficos.getElementsByTagName("button")[2];
     botaoDownload.click();
     setTimeout(()=>{
       botaoFechar.click();
       this.menuAberto = false;
+      this.retornarFoco(botaoApertado);
     }, 200);
-    
+  }
+  // Retornar foco para o botão que foi clicado para fins de acessibilidade
+  retornarFoco(botaoClicado){
+    let botao = document.getElementById(botaoClicado);
+    console.log(botao);
+    botao.focus();
   }
 }
   
