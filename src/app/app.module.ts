@@ -17,6 +17,8 @@ import { ObjectiveContentComponent } from './components/objective-content/object
 import { MapaServicosComponent } from './components/mapa-servicos/mapa-servicos.component';
 import { AjudaContentComponent } from './components/ajuda-content/ajuda-content.component';
 import { ContatoContentComponent } from './components/contato-content/contato-content.component';
+import { GrafaPainelComponent } from './grafa-painel/grafa-painel.component';
+
 
 
 @NgModule({
@@ -29,7 +31,8 @@ import { ContatoContentComponent } from './components/contato-content/contato-co
     ObjectiveContentComponent,
     MapaServicosComponent,
     AjudaContentComponent,
-    ContatoContentComponent
+    ContatoContentComponent,
+    GrafaPainelComponent
   ],
   imports: [
     BrowserModule,

@@ -10,13 +10,137 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
     integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
     crossorigin=""/>
+    <style>
+      		a:focus, a:hover {  
+            box-shadow: inset 0 0 0 4px #F00;
+			}   
+      .fake {
+          display: none;
+      }
+
+      #acssblt{
+        margin-left: 6%;
+      }
+
+      #atalhos {
+          background-color: #EEEEE4;
+          color: #333333;
+          font-size: 18px;
+          margin: auto auto;
+          padding: auto;
+          list-style-type: none;
+          align-content: center;
+          text-align: center;
+      }
+
+      li {
+        display: inline;
+        float: left;
+        min-width: 14vw;
+        width: fit-content;
+        max-width: 2px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        text-align: center;
+        text-decoration: none;
+      }
+
+      list a{
+        display: inline-block; 
+      }
+
+      .td {
+        text-decoration: none;
+        color: #000;
+      }
+
+      .td:hover, .td:focus {
+        cursor: pointer; 
+        background-color: #333333;
+        color: #f9f9f9;
+      }
+
+      .hover2:hover {
+        cursor: pointer; 
+        background-color: #333333;
+        color: #f9f9f9;
+      }
+
+      .hover3 {
+          color: #FFF;
+      }
+
+      .hover3:hover {
+          cursor: pointer; 
+          background-color: #FFF;
+          color: #000;
+      }
+
+      #acssblt {  
+        text-align: center;
+      }
+
+      @media (orientation: portrait) and (max-width: 599.98px){
+        #acssblt {
+        display: none;
+        }
+      }
+
+      @media (orientation: portrait) and (min-width: 599.98px) and (max-width: 839.98px){
+        #acssblt {
+        display: none;
+        }
+      }
+  
+    </style>
   </head>
   <body class="mat-typography">
+      
+    <section id="acssblt">
+      <ul id="atalhos">
+        <li><a class="td" onclick="irAoConteudo()" accesskey="1">Ir ao Conteudo [alt+1]</a></li>
+        <li><a class="td" onclick="irAoMenu()" accesskey="2">Ir ao Menu [alt+2]</a></li>
+        <li><a class="td" onclick="irAoRodape()" accesskey="3">Ir ao Rodapé [alt+3]</a></li>        
+      </ul>
+    </section>
+
+    <script>
+      function irAoConteudo(){
+        console.log(document.getElementsByTagName("h2")[0]);
+        document.getElementsByTagName("h2")[0].focus();
+      }
+      function irAoMenu(){
+        document.getElementById("pgInicial").focus();
+      }
+      function irAoRodape(){
+        console.log(window.location.href);
+        document.getElementById("footertext1").focus();
+      }
+      
+  </script>
+  <noscript>Seu navegador não tem suporte a JavaScript ou está desativado!</noscript>
+
     <app-root></app-root>
+
     <aside aria-label="traducaodelibras">
       <div id="HT"></div>
     </aside>
+
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GYMVEHBZNS"></script>
+    <noscript>Seu navegador não tem suporte a JavaScript ou está desativado!</noscript>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-GYMVEHBZNS');
+    </script>
+    <noscript>Seu navegador não tem suporte a JavaScript ou está desativado!</noscript>
+
+
     <script src="https://plugin.handtalk.me/web/latest/handtalk.min.js"></script>
+    <noscript>Seu navegador não tem suporte a JavaScript ou está desativado!</noscript>
     <script>
       var ht = new HT({
           token: "aa1f4871439ba18dabef482aae5fd934",
@@ -27,5 +151,7 @@
           parentElement: document.getElementById("HT")
       });
     </script>
+    <noscript>Seu navegador não tem suporte a JavaScript ou está desativado!</noscript>
+
   </body>
 </html>

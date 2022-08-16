@@ -1,22 +1,22 @@
 <div class="footer-basic">
-        <div id="info">
-            <p id="footertext1" tabindex="0" class="footertext" style="font-weight: bold">
-                Secretaria Municipal da Pessoa com Deficiência
-            </p>
-            <p tabindex="0" class="footertext" >
-                Rua Líbero Badaró, 425 - 32º andar - Centro </p>
-            <a tabindex="0" class="footertext" href="https://observatorio.smped.prefeitura.sp.gov.br/">
-                observatorio.smped.prefeitura.sp.gov.br
-            </a>
-        </div>
-        <div class="social">
-            <a tabindex="0" href="https://www.facebook.com/SMPEDSP/" ><img alt="facebook" src="./assets/facebook.png" href="" class="icon"></a>
-            <a tabindex="0" href="https://twitter.com/smpedsp" ><img alt="twitter" src="./assets/twitter.png" href="" class="icon"></a>
-            <a tabindex="0" href="https://www.youtube.com/user/inclusaosp"><img alt="youtube" src="./assets/youtube.png" href="" class="icon"></a>
-            <a tabindex="0" href="https://www.instagram.com/smpedsp/?hl=pt-br"><img  alt="instagram" src="./assets/instagram.png" href="" class="icon"></a>
-        </div>
+    <div id="info" [ngClass]="{'mobile': acessoMobile}" role="tablist">
+        <p id="footertext1" tabindex="0" class="footertext" style="font-weight: bold" role="tab">
+            Secretaria Municipal da Pessoa com Deficiência
+        </p>
+        <p tabindex="0" class="footertext" role="tab">
+            Rua Líbero Badaró, 425 - 32º andar - Centro </p>
+        <a tabindex="0" class="footertext" href="https://observatorio.smped.prefeitura.sp.gov.br/">
+            observatorio.smped.prefeitura.sp.gov.br
+        </a>
+    </div>
+    <div class="social">
+        <a tabindex="0" href="https://www.facebook.com/SMPEDSP/" ><img alt="facebook" src="./assets/facebook.png" href="" class="icon"></a>
+        <a tabindex="0" href="https://twitter.com/smpedsp" ><img alt="twitter" src="./assets/twitter.png" href="" class="icon"></a>
+        <a tabindex="0" href="https://www.youtube.com/user/inclusaosp"><img alt="youtube" src="./assets/youtube.png" href="" class="icon"></a>
+        <a tabindex="0" href="https://www.instagram.com/smpedsp/?hl=pt-br"><img  alt="instagram" src="./assets/instagram.png" href="" class="icon"></a>
+    </div>
 
-        <div class="selo">
-        </div>
-        <a class="copyright" href="https://www.prefeitura.sp.gov.br/cidade/secretarias/pessoa_com_deficiencia">Secretaria Municipal da Pessoa com Deficiência © 2022</a>
+    <div class="selo" *ngIf="!acessoMobile">
+    </div>
+    <a class="copyright" href="https://www.prefeitura.sp.gov.br/cidade/secretarias/pessoa_com_deficiencia">Secretaria Municipal da Pessoa com Deficiência © 2022</a>
 </div>

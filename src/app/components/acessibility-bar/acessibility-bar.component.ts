@@ -44,23 +44,23 @@ export class AcessibilityBarComponent {
   }
 
   ngOnInit(): void {    
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
+    // document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    //   anchor.addEventListener('click', function (e) {
+    //     e.preventDefault();
 
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-        });
+    //     document.querySelector(this.getAttribute('href')).scrollIntoView({
+    //       behavior: 'smooth'
+    //     });
 
-        document.querySelector(this.getAttribute('href')).click();
-      });
-    });
+    //     document.querySelector(this.getAttribute('href')).click();
+    //   });
+    // });
   } 
 
-  irConteudo() {
-    document.getElementById("content").scrollIntoView();
-    document.getElementsByTagName("h2")[0].focus();
-  }
+  // irConteudo() {
+  //   document.getElementById("titulo").scrollIntoView();
+  //   document.getElementsByTagName("h2")[0].focus();
+  // }
 
   irMenu() {
     document.getElementById("menubar").scrollIntoView();
@@ -313,11 +313,11 @@ export class AcessibilityBarComponent {
     }
   }
 
-  onKeyPressConteudo(e: KeyboardEvent){
-    if(e.keyCode == 13){
-      this.irConteudo();
-    }
-  }
+  // onKeyPressConteudo(e: KeyboardEvent){
+  //   if(e.keyCode == 13){
+  //     this.irConteudo();
+  //   }
+  // }
 
   @HostListener('document:keydown', ['$event']) //Teclas de atalho
   onKeyDown(e: KeyboardEvent){

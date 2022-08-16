@@ -1,4 +1,4 @@
-<div class="table">
+<div class="table" *ngIf="!acessoMobile">
     <ul id="atalho">  
         <li id="pgInicial1"><a  routerLink="" (click)="focus()" tabindex="0" class="hover" id="pgInicial">Página Inicial</a></li>  
           
@@ -13,4 +13,25 @@
         <li><a routerLink="/ajuda" (click)="focus()" tabindex="0" class="hover" id="Ajuda">Ajuda</a></li> 
     </ul>
 </div>
-  
+
+<table class="barra" *ngIf="acessoMobile">
+    <tr>  
+        <td class="botao-menu" id="principal"><a (click)="mobile()">Menu</a></td>
+    </tr>
+</table>
+
+<table class="barra" *ngIf="acessoMobile && menuClicado">
+    <tr>  
+        <td class="botao-menu"><a routerLink="" (click)="focus()" tabindex="0" class="hover" id="pgInicial">Página Inicial</a></td>
+    </tr>
+        <td class="botao-menu"><a routerLink="/quem-somos" (click)="focus()" tabindex="0" class="hover" id="Qmsomos">Quem somos</a></td>
+    <tr>  
+        <td class="botao-menu"><a routerLink="/paineis" (click)="focus()" tabindex="0" class="hover" id="Paineis">Painéis</a></td>
+    </tr>
+        <td class="botao-menu"><a routerLink="/mapa-rede-servicos-acessiveis" (click)="focus()" tabindex="0" class="hover" id="Mapa">Mapa da Rede de Serviços Acessíveis</a></td>
+    <tr>  
+        <td class="botao-menu"><a routerLink="/contatos" (click)="focus()" tabindex="0" class="hover" id="Contato">Contato</a></td>  
+    </tr>
+        <td class="botao-menu"><a routerLink="/ajuda" (click)="focus()" tabindex="0" class="hover" id="Ajuda">Ajuda</a></td>
+    <tr>   
+</table>

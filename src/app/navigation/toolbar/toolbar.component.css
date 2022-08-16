@@ -3,6 +3,16 @@
     color: #1C2E8A;
     height: 200px;
     position: relative;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+#toolbar-principal.mobile {
+    margin-top: 25px !important;
+    margin-bottom: 25px !important;
+    background-color: #FFFFFF;
+    color: #1C2E8A;
+    height: 200px;
 }
 
 #title {
@@ -18,5 +28,28 @@ h1{
 }
 
 .logo {
+    height: 150px;
+}
+
+.logo.mobile{
+    height: auto;
+    width: 80%;
+}
+
+.logoPref.mobile{
+    height: 25vw;
+}
+
+.logoPref {
     height: 180px;
 }
+
+#logos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    margin: 0 auto;
+}
+
+

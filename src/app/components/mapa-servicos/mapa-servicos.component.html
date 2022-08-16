@@ -1,15 +1,20 @@
 <div id="pginicial">
-    <div id="titulo">
-        <h2 tabindex="0">Mapa da Rede de Serviços Acessíveis</h2>
+    <div id="titulo" [ngClass]="{'mobile': acessoMobile}" role="tablist">
+        <h2 [ngClass]="{'mobile': acessoMobile}" tabindex="0" role="tab">Mapa da Rede de Serviços Acessíveis</h2>
     </div>
     <br>
-    <iframe src="https://www.google.com/maps/d/embed?mid=1Iuowv-fzbrNxTssTRVtHYhMKlXk&ehbc=2E312F" width="640" height="480"></iframe>
-    <div  iv id="legenda">
-        <p tabindex="0" >O Mapa da Rede de Serviços Acessíveis destaca os equipamentos públicos com acessibilidade da cidade de São Paulo.</p>
+    <iframe tabindex="-1" *ngIf="acessoMobile" src="https://www.google.com/maps/d/embed?mid=1Iuowv-fzbrNxTssTRVtHYhMKlXk&ehbc=2E312F" width="300" height="480"></iframe>
+    <iframe tabindex="-1" title="mapa" *ngIf="!acessoMobile" src="https://www.google.com/maps/d/embed?mid=1Iuowv-fzbrNxTssTRVtHYhMKlXk&ehbc=2E312F" width="640" height="480"></iframe>
+    <div  iv id="legenda" [ngClass]="{'mobile': acessoMobile}" role="tablist">
+        <p tabindex="0" role="tab">O Mapa da Rede de Serviços Acessíveis destaca os equipamentos públicos com acessibilidade da cidade de São Paulo.</p>
     </div>
-    <div id="text">
+
+    <a tabindex="0" id="download" href="/assets/Mapa de Rede 2022.xlsx" download
+    title="Botão para realizar o download do arquivo CSV correspondente ao Mapa da Rede de
+    Serviços Acessíveis">Download do arquivo CSV do Mapa da Rede de Serviços Acessíveis</a>
+    <div id="text" [ngClass]="{'mobile': acessoMobile}" role="tablist">
         <br>
-        <p tabindex="0">
+        <p tabindex="0" role="tab">
             O Mapa da Rede de Serviços Acessíveis é um recurso que apresenta
 geograficamente os equipamentos públicos com acessibilidade e os que atendem à
 pessoa com deficiência em São Paulo. É um mapa online organizado de maneira
@@ -17,12 +22,12 @@ simples para consulta e analise. Além de trazer informações como endereço e
 telefone para contato, traz também indicações do tipo de acessibilidade do local.
         </p>
         <br>
-        <p tabindex="0">    
+        <p tabindex="0" role="tab">    
             Seu objetivo principal é facilitar a busca por equipamentos públicos
 acessíveis na cidade e centralizar as informações de acessibilidade desses locais.
         </p>
         <br>
-        <p tabindex="0">    
+        <p tabindex="0" role="tab">    
             Por ser elaborado em uma plataforma popularmente conhecida e de fácil
 utilização, o Mapa do Google (Google Maps), o Mapa de Rede facilita a busca por
 informações sobre os locais e formas de locomoção, já que conta com os recursos
@@ -30,14 +35,14 @@ da própria plataforma. Assim, garante ao munícipe informação centralizada, r
 transparente permitindo que os deslocamentos pela cidade se tornem mais fáceis.
         </p>    
         <br>
-        <p tabindex="0">
+        <p tabindex="0" role="tab">
             O Mapa da Rede de Serviços foi feito com pesquisa e busca sobre os
 equipamentos públicos acessíveis na cidade de São Paulo nas Secretarias
 Municipais. Também contou com o apoio da Coordenação de Acessibilidade e
 Desenho Universal CADU, parte da SMPED.
         </p>
         <br>
-        <p tabindex="0">
+        <p tabindex="0" role="tab">
             As informações foram reunidas por meio de diálogos intersecretariais entre a
 SMPED e as demais secretarias, além de intensa pesquisa dentro da prefeitura e
 publicações de Institutos que já dialogam com as secretarias. Vale ressaltar que
@@ -46,11 +51,10 @@ deficiência, os equipamentos apresentam requisitos mínimos de acessibilidade p
 garantir o acesso e o atendimento da pessoa com deficiência.
         </p>
         <br>
-        <p tabindex="0">
+        <p tabindex="0" role="tab">
             O Mapa está em constante construção e é periodicamente atualizado. O
 objetivo é que cresça cada vez mais e aglomere mais e mais informações, ajudando
 na construção de uma cidade mais inclusiva.
         </p>
     </div>
-
 </div>
