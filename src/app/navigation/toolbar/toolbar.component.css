@@ -1,5 +1,3 @@
-
-
 #toolbar-principal {
     background-color: #FFFFFF;
     color: #1C2E8A;
@@ -10,6 +8,8 @@
 }
 
 #toolbar-principal.mobile {
+    margin-top: 25px !important;
+    margin-bottom: 25px !important;
     background-color: #FFFFFF;
     color: #1C2E8A;
     height: 200px;

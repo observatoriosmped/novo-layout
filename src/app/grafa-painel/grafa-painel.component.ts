@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { MatTableDataSource } from '@angular/material/table'
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 import {DashDescriptionService} from '../dash-description.service'
 
@@ -12,6 +13,8 @@ import {DashDescriptionService} from '../dash-description.service'
 })
 export class GrafaPainelComponent implements OnInit {
 
+  menuAberto = false;
+  acessoMobile = false;
   public id: string;
   public description = []
   public url: string
@@ -24,7 +27,7 @@ export class GrafaPainelComponent implements OnInit {
   safeSrc: SafeResourceUrl;
   public iframe
 
-  constructor(private route: ActivatedRoute, private sanitizer: DomSanitizer, private DetailsGrafana:DashDescriptionService,) {
+  constructor(private responsive: BreakpointObserver, private route: ActivatedRoute, private sanitizer: DomSanitizer, private DetailsGrafana:DashDescriptionService,) {
     
   }
 
@@ -42,10 +45,61 @@ export class GrafaPainelComponent implements OnInit {
     this.DetailsGrafana.getDescription(this.uid).subscribe(data=>{
       this.description.push(data)
     })
-    document.title=this.title    
+    document.title=this.title   
+    
+    this.responsive.observe([Breakpoints.HandsetPortrait, Breakpoints.TabletPortrait]).subscribe
+    (result =>{
+      
+      this.acessoMobile = false;
+
+      if(result.matches){
+        this.acessoMobile = true;
+      }
+    });
   }
+
+  // Botão clicado é a variável que representa o id do botao clicado, retornado via HTML
+  abrirMenu(botaoClicado){
+    let iframe = document.getElementsByTagName("iframe")[0].contentWindow.document;
+    let target;
+    // iframe contem todo o HTML carregado pelo grafana
+    let graficos = iframe.getElementById('reactRoot').getElementsByTagName("h2");
+    // graficos contem um vetor com os elementos h2 que são os titulos de todos os graficos
+    for(let i = 0; i < graficos.length; i++){
+      if(graficos[i].innerHTML.localeCompare(botaoClicado) == 0){
+        target = graficos[i];
+      }
+    }
+    if(!this.menuAberto){ // abre o menu se este não estiver aberto
+      target.click();
+      this.menuAberto = !this.menuAberto;
+    }
+    // Aguardar a operação de abrir o menu, para não buscar os itens vazios
+    setTimeout(() => {
+      let opcoes = iframe.getElementById('reactRoot').getElementsByClassName("dropdown-item-text");
+      let botao = opcoes[4].getElementsByTagName("div")[0];
+      botao.click();
+      this.fazerDownload(botaoClicado, iframe);
+    }
+      ,800);
   
-
-
-
+  }
+  //Esta funcao é chamada quando o menu inspect do grafana foi aberto
+  fazerDownload(botaoApertado, telaGraficos){
+    let botaoFechar = telaGraficos.getElementsByTagName("button")[1];
+    let botaoDownload = telaGraficos.getElementsByTagName("button")[2];
+    botaoDownload.click();
+    setTimeout(()=>{
+      botaoFechar.click();
+      this.menuAberto = false;
+      this.retornarFoco(botaoApertado);
+    }, 200);
+  }
+  // Retornar foco para o botão que foi clicado para fins de acessibilidade
+  retornarFoco(botaoClicado){
+    let botao = document.getElementById(botaoClicado);
+    console.log(botao);
+    botao.focus();
+  }
 }
+  

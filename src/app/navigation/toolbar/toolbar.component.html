@@ -1,11 +1,11 @@
 <mat-toolbar class="donotchange">
-  <mat-toolbar-row class="donotchange" id="toolbar-principal">
+  <mat-toolbar-row class="donotchange" id="toolbar-principal" [ngClass]="{'mobile': acessoMobile}">
     <div *ngIf="!acessoMobile">
     <a class="donotchange" tabindex="0" [routerLink]="['/']" id="logo-observatorio">
       <img class="logo" [ngClass]="{'mobile': acessoMobile}" src="/assets/2019.06.29---Layout-Observatório-Municipal-PCD--COLORIDO-VAZADO.PNG" alt="Observatório Municipal da Pessoa com Deficiência">
       </a>
       <a *ngIf="acessoMobile" class="donotchange" tabindex="0" href="https://www.prefeitura.sp.gov.br/cidade/secretarias/pessoa_com_deficiencia/" id="logo-prefeitura">
-        <img [ngClass]="{'mobile': acessoMobile}" class="logoPref" src="/assets/Pessoa com Deficiência_principal - vertical.png" alt="Secretaria Municipal do Deficiente">
+        <img [ngClass]="{'mobile': acessoMobile}" class="logoPref" src="/assets/Pessoa com Deficiência_principal - vertical.png" alt="Secretaria Municipal da Pessoa com Deficiência">
       </a> 
     </div>
     <div id="logos" *ngIf="acessoMobile">
@@ -13,7 +13,7 @@
     <img class="logo" [ngClass]="{'mobile': acessoMobile}" src="/assets/2019.06.29---Layout-Observatório-Municipal-PCD--COLORIDO-VAZADO.PNG" alt="Observatório Municipal da Pessoa com Deficiência">
     </a>
     <a *ngIf="acessoMobile" class="donotchange" tabindex="0" href="https://www.prefeitura.sp.gov.br/cidade/secretarias/pessoa_com_deficiencia/" id="logo-prefeitura">
-      <img [ngClass]="{'mobile': acessoMobile}" class="logoPref" src="/assets/Pessoa com Deficiência_principal - vertical.png" alt="Secretaria Municipal do Deficiente">
+      <img [ngClass]="{'mobile': acessoMobile}" class="logoPref" src="/assets/Pessoa com Deficiência_principal - vertical.png" alt="Secretaria Municipal da Pessoa com Deficiência">
     </a> 
    </div>
 

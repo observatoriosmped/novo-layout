@@ -28,7 +28,6 @@ export class MapaServicosComponent implements OnInit {
 
       if(result.matches){
         this.acessoMobile = true;
-        console.log(this.acessoMobile);
       }
     });
 

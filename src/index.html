@@ -54,7 +54,7 @@
         color: #000;
       }
 
-      .td:hover {
+      .td:hover, .td:focus {
         cursor: pointer; 
         background-color: #333333;
         color: #f9f9f9;
@@ -76,8 +76,20 @@
           color: #000;
       }
 
-      #acssblt {
+      #acssblt {  
         text-align: center;
+      }
+
+      @media (orientation: portrait) and (max-width: 599.98px){
+        #acssblt {
+        display: none;
+        }
+      }
+
+      @media (orientation: portrait) and (min-width: 599.98px) and (max-width: 839.98px){
+        #acssblt {
+        display: none;
+        }
       }
   
     </style>
@@ -86,11 +98,27 @@
       
     <section id="acssblt">
       <ul id="atalhos">
-        <li><a class="td" href="#h2Aqui" accesskey="1">Ir ao Conteudo [alt+1]</a></li>
-        <li><a class="td" href="#atalho" accesskey="2">Ir ao Menu [alt+2]</a></li>
-        <li><a class="td" href="#info" accesskey="3">Ir ao Rodapé [alt+3]</a></li>        
+        <li><a class="td" onclick="irAoConteudo()" accesskey="1">Ir ao Conteudo [alt+1]</a></li>
+        <li><a class="td" onclick="irAoMenu()" accesskey="2">Ir ao Menu [alt+2]</a></li>
+        <li><a class="td" onclick="irAoRodape()" accesskey="3">Ir ao Rodapé [alt+3]</a></li>        
       </ul>
     </section>
+
+    <script>
+      function irAoConteudo(){
+        console.log(document.getElementsByTagName("h2")[0]);
+        document.getElementsByTagName("h2")[0].focus();
+      }
+      function irAoMenu(){
+        document.getElementById("pgInicial").focus();
+      }
+      function irAoRodape(){
+        console.log(window.location.href);
+        document.getElementById("footertext1").focus();
+      }
+      
+  </script>
+  <noscript>Seu navegador não tem suporte a JavaScript ou está desativado!</noscript>
 
     <app-root></app-root>
 
