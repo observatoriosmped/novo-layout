@@ -13,7 +13,7 @@ export class GrafanaDashsService {
    let url="http://localhost:3000/api/search"
    const headers = new HttpHeaders({
      'Content-Type': 'application/json',
-     'Authorization': `Bearer eyJrIjoiSm1hRXUzTzc1dE1TbkkxNDZ1M2xITk1YaHJacndRdXgiLCJuIjoidGVzdGUiLCJpZCI6MX0=`
+     'Authorization': `Bearer glsa_t4PlP5G3Xbvjzd9ZDRvsmjWQK4COKKBm_7b550827`
    }) 
    return this.http.get(url, {headers: headers});    
   }

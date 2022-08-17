@@ -12,6 +12,8 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import {GrafanaDashsService} from '../../grafana-dashs.service'
 import {DashDescriptionService} from '../../dash-description.service'
 
+import { painelGrafana } from '../models/painel.model';
+
 @Component({
   selector: 'app-portal',
   template: `Number of ticks: {{numberOfTicks}}`,
@@ -56,7 +58,11 @@ export class PortalComponent implements OnInit {
               this.DetailsGrafana.getDescription(this.dataGrafana[i].uid).subscribe(data2=>{
                 //if (data2.meta.isFolder != true){
                   this.multipleDetails.push(data2)
-                  this.filtrados.push(data2)
+                  let respostaGrafa = <painelGrafana> data2;
+                  if(!respostaGrafa.meta.isFolder){
+                    this.filtrados.push(data2)
+                  }
+                  
                 //}
                 //this.multipleDetails.push(data2)
               })    
@@ -74,7 +80,6 @@ export class PortalComponent implements OnInit {
     }
 
   async ngOnInit() {
-
     this.responsive.observe(Breakpoints.HandsetPortrait).subscribe
     (result =>{
       
