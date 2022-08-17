@@ -23,7 +23,7 @@ export class AjudaContentComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.responsive.observe(Breakpoints.HandsetPortrait).subscribe
+    this.responsive.observe([Breakpoints.HandsetPortrait, Breakpoints.TabletPortrait]).subscribe
     (result =>{
       
       this.acessoMobile = false;
