@@ -13,6 +13,7 @@ import {GrafanaDashsService} from '../../grafana-dashs.service'
 import {DashDescriptionService} from '../../dash-description.service'
 
 import { painelGrafana } from '../models/painel.model';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-portal',
@@ -38,7 +39,8 @@ export class PortalComponent implements OnInit {
   public classe = 'big';
   public dataGrafana: any
   public detailsGrafana: any
-  public multipleDetails = []
+  public multipleDetails = [] // todas as informaçes retornadas pelo grafana
+  public paineisGrafa = [];
   public filtrados = [] 
   public toRenderData = []
 
@@ -60,7 +62,8 @@ export class PortalComponent implements OnInit {
                   this.multipleDetails.push(data2)
                   let respostaGrafa = <painelGrafana> data2;
                   if(!respostaGrafa.meta.isFolder){
-                    this.filtrados.push(data2)
+                    this.paineisGrafa.push(data2)
+                    this.filtrados.push(data2);
                   }
                   
                 //}
@@ -217,7 +220,7 @@ export class PortalComponent implements OnInit {
 
   filtroGrafana(event: Event){
     const filterValue = (event.target as HTMLInputElement).value;
-    this.filtrados = this.multipleDetails.filter(x => x.dashboard.title.includes(filterValue));
+    this.filtrados = this.paineisGrafa.filter(x => x.dashboard.title.includes(filterValue));
   }
 
   voltarNavegacao() {
