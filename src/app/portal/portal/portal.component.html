@@ -11,7 +11,7 @@
     <div class="pesquisa {{classe}}">
       <mat-form-field id="matform" class="form-field" [ngClass]="{'mobile': acessoMobile}">
         <!-- <input matInput (keyup)="applyFilter($event)" id="filtro" placeholder="Filtro"> -->
-        <mat-label>Pesquise por um painel ou por um tema</mat-label>
+        <mat-label>Pesquise pelo título de um painel ou por um tema</mat-label>
         <span matPrefix>
           <mat-icon alt="Pesquisar">search</mat-icon> &nbsp;
         </span>
@@ -50,7 +50,7 @@
       </div>
 
 
-      <div class="sem-resposta" *ngIf="paineisDataSource.filteredData.length == 0 && dataGrafana.length == 0">
+      <div class="sem-resposta" *ngIf="filtrados.length == 0">
         <div class="img"><img src="assets/notfound.png"></div>
         <p>Nenhum resultado foi encontrado</p>
       </div>

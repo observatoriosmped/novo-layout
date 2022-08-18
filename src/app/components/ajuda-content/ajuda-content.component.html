@@ -8,6 +8,6 @@
             Caso esteja com dificuldade, assista esse vídeo para utilizar o Portal do Observatório:</p>
     <br>
     <iframe *ngIf="!acessoMobile" width="840" height="472" src="https://www.youtube.com/embed/hGvShzSNUyM" title="YouTube video player - vídeo de ajuda" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    <iframe *ngIf="acessoMobile" width="350" height="250" src="https://www.youtube.com/embed/hGvShzSNUyM" title="YouTube video player - vídeo de ajuda" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <iframe *ngIf="acessoMobile" [ngClass]="{'mobile': acessoMobile}" width="350" height="250" src="https://www.youtube.com/embed/hGvShzSNUyM" title="YouTube video player - vídeo de ajuda" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>       
 </div>

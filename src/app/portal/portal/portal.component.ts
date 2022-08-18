@@ -12,6 +12,9 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import {GrafanaDashsService} from '../../grafana-dashs.service'
 import {DashDescriptionService} from '../../dash-description.service'
 
+import { painelGrafana } from '../models/painel.model';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+
 @Component({
   selector: 'app-portal',
   template: `Number of ticks: {{numberOfTicks}}`,
@@ -36,7 +39,8 @@ export class PortalComponent implements OnInit {
   public classe = 'big';
   public dataGrafana: any
   public detailsGrafana: any
-  public multipleDetails = []
+  public multipleDetails = [] // todas as informaçes retornadas pelo grafana
+  public paineisGrafa = [];
   public filtrados = [] 
   public toRenderData = []
 
@@ -56,7 +60,12 @@ export class PortalComponent implements OnInit {
               this.DetailsGrafana.getDescription(this.dataGrafana[i].uid).subscribe(data2=>{
                 //if (data2.meta.isFolder != true){
                   this.multipleDetails.push(data2)
-                  this.filtrados.push(data2)
+                  let respostaGrafa = <painelGrafana> data2;
+                  if(!respostaGrafa.meta.isFolder){
+                    this.paineisGrafa.push(data2)
+                    this.filtrados.push(data2);
+                  }
+                  
                 //}
                 //this.multipleDetails.push(data2)
               })    
@@ -74,7 +83,6 @@ export class PortalComponent implements OnInit {
     }
 
   async ngOnInit() {
-
     this.responsive.observe(Breakpoints.HandsetPortrait).subscribe
     (result =>{
       
@@ -212,7 +220,8 @@ export class PortalComponent implements OnInit {
 
   filtroGrafana(event: Event){
     const filterValue = (event.target as HTMLInputElement).value;
-    this.filtrados = this.multipleDetails.filter(x => x.dashboard.title.includes(filterValue));
+    this.filtrados = this.paineisGrafa.filter(x => x.dashboard.title.toLowerCase().includes(filterValue) 
+    || x.meta.folderTitle.toLowerCase().includes(filterValue));
   }
 
   voltarNavegacao() {

@@ -77,7 +77,14 @@ export class GrafaPainelComponent implements OnInit {
     // Aguardar a operação de abrir o menu, para não buscar os itens vazios
     setTimeout(() => {
       let opcoes = iframe.getElementById('reactRoot').getElementsByClassName("dropdown-item-text");
-      let botao = opcoes[4].getElementsByTagName("div")[0];
+      let botao;
+      let escolha = new String();
+      for(let i = 0; i < opcoes.length; i++){
+        escolha = <String> opcoes[i].innerHTML;
+        if(escolha.includes("Inspect")){
+          botao = opcoes[i];
+        }
+      }
       botao.click();
       this.fazerDownload(botaoClicado, iframe);
     }

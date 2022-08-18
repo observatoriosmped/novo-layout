@@ -55,3 +55,8 @@ export class Painel implements IPainel {
     return painel;
   }
 }
+
+export interface painelGrafana {
+    meta: any;
+    dashboard: any;
+}
