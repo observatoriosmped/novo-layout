@@ -1,6 +1,6 @@
 <div id="pginicial">
     <div class="botaoVoltar">
-        <button class="botaoVoltarProprio" routerLink="/paineis">Voltar</button>
+        <button class="botaoVoltarProprio" tabindex="0" title="Clique para retornar à página de painéis" routerLink="/paineis">Voltar</button>
     </div>  
     <div id="titulo" role="tablist">
         <h2 tabindex="0" role="tab">{{ title }}</h2>
@@ -18,7 +18,7 @@
             <h3 tabindex="0" [ngClass]="{'mobile': acessoMobile}">Gráficos presentes neste painel: </h3>
             <h4 id="titulo-panel-valor" tabindex="0">Título: {{panel.title}}</h4>
 
-            <button title="Botão para realizar download do arquivo csv correspondente a este grafico"
+            <button title="Botão para realizar download do arquivo csv correspondente ao gráfico {{panel.title}}"
             class="download" [id]="panel.title" (click)="abrirMenu(panel.title)">Download CSV</button>  
 
             <p id="descricao-panel-valor" tabindex="0">Descrição: {{panel.description}}</p> 
