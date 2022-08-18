@@ -220,7 +220,7 @@ export class PortalComponent implements OnInit {
 
   filtroGrafana(event: Event){
     const filterValue = (event.target as HTMLInputElement).value;
-    this.filtrados = this.paineisGrafa.filter(x => x.dashboard.title.includes(filterValue));
+    this.filtrados = this.paineisGrafa.filter(x => x.dashboard.title.includes(filterValue) || x.meta.folderTitle.includes(filterValue));
   }
 
   voltarNavegacao() {
