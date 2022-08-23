@@ -10,10 +10,10 @@ export class GrafanaDashsService {
 
   getData()
   {
-   let url="http://localhost:3000/api/search"
+   let url="http://localhost:4200/api/search"
    const headers = new HttpHeaders({
      'Content-Type': 'application/json',
-     'Authorization': `Bearer glsa_t4PlP5G3Xbvjzd9ZDRvsmjWQK4COKKBm_7b550827`
+     'Authorization': `Bearer eyJrIjoiSkV6SzRKOHU0ejdoeVhPQUlPOVh1VW1tRmhaUjg5VmIiLCJuIjoib2JzZXJ2YXRvcmlvIiwiaWQiOjF9`
    }) 
    return this.http.get(url, {headers: headers});    
   }
