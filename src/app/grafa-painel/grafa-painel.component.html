@@ -11,7 +11,7 @@
             <p id="descricao-valor" tabindex="0">{{description[0].dashboard.description}}</p> 
     </div>
     <div id="graficos" tabindex="-1">
-        <iframe id="myIframe" tabindex="-1" [src]="safeSrc" width="90%" height="1000" frameborder="0"></iframe>
+        <iframe id="myIframe" tabindex="-1" [src]="SafeproxySrc" width="90%" height="1000" frameborder="0"></iframe>
     </div>
     
     <div id="text2" *ngFor="let panel of description[0].dashboard.panels">   

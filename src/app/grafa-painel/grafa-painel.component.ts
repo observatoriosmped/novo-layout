@@ -26,12 +26,15 @@ export class GrafaPainelComponent implements OnInit {
   public length: number
   safeSrc: SafeResourceUrl;
   public iframe
+  public proxySource
+  public SafeproxySrc;
 
   constructor(private responsive: BreakpointObserver, private route: ActivatedRoute, private sanitizer: DomSanitizer, private DetailsGrafana:DashDescriptionService,) {
     
   }
 
   ngOnInit() {
+    
     this.id = this.route.snapshot.paramMap.get('id');
     this.separator = this.id.indexOf("&")
     this.separator2 = this.id.indexOf("@@")
@@ -41,6 +44,10 @@ export class GrafaPainelComponent implements OnInit {
     this.source = "https://6d5a-143-107-167-161.sa.ngrok.io/d" + this.url + "?orgId=1" + "&kiosk=true"
     //this.source = "http://localhost:3000/d" + this.url + "?orgId=1" + "&kiosk=true"
     this.safeSrc =  this.sanitizer.bypassSecurityTrustResourceUrl(this.source)
+    this.proxySource = "http://localhost/d" + this.url + "?orgId=1";
+    this.SafeproxySrc = this.sanitizer.bypassSecurityTrustResourceUrl(this.proxySource);
+
+    console.log(this.SafeproxySrc);
 
     this.DetailsGrafana.getDescription(this.uid).subscribe(data=>{
       this.description.push(data)
