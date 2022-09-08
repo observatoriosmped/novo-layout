@@ -11,12 +11,12 @@ export class DashDescriptionService {
 
   safeSrc: SafeResourceUrl;
 
-  getDescription(uid: string)
+   getDescription(uid: string)
   {
   let url="http://localhost:4200/api/dashboards/uid/" + uid
    const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': `Bearer eyJrIjoiSkV6SzRKOHU0ejdoeVhPQUlPOVh1VW1tRmhaUjg5VmIiLCJuIjoib2JzZXJ2YXRvcmlvIiwiaWQiOjF9`
+      'Authorization': `Bearer glsa_Sof0HKi2agxrQP9qm4r2G99VacBNwV4P_9b639c46`
     }) 
     this.safeSrc =  this.sanitizer.bypassSecurityTrustResourceUrl(url);
     return this.http.get(url);    

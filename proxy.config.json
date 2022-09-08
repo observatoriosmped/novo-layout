@@ -1,8 +1,7 @@
 {
     "/api": {
-        "target": "https://6d5a-143-107-167-161.sa.ngrok.io",
+        "target": "http://localhost:3000",
         "secure": false,
         "changeOrigin": true
         }
     }
-    
