@@ -9,14 +9,14 @@ import { map, catchError} from 'rxjs/operators';
   })
 export class ExportadorService {
  
-  baseURL: string = "http://localhost:8080";
+  baseURL: string = "http://localhost:8080/exportar-arquivo/por-nome";
  
   constructor(private http: HttpClient) {
   }
 
   getCSV(): Observable<any> {
-    const params = new HttpParams().set('titulo','teste');
-    return this.http.get(this.baseURL, {params : params})
+    const params = new HttpParams().set('fileName','teste.csv');
+    return this.http.get(this.baseURL, {params})
   }
  
 }
