@@ -16,7 +16,7 @@ export class ExportadorService {
 
   getCSV(): Observable<any> {
     const params = new HttpParams().set('fileName','teste.csv');
-    return this.http.get(this.baseURL, {params})
+    return this.http.get(this.baseURL, {params:params, responseType:'blob'})
   }
  
 }

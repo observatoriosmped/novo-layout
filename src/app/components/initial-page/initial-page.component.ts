@@ -139,8 +139,8 @@ export class InitialPageComponent implements OnInit {
 
   fazerDownload(){
     let request = this.exportador.getCSV();
-    console.log(request)
-    request.subscribe( data => console.log(data))
+    request.subscribe(response =>
+      console.log(response))
   }
 }
 
