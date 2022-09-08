@@ -5,6 +5,7 @@ import { MatTableDataSource } from '@angular/material/table'
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { HttpClient, HttpParams } from '@angular/common/http';
 
+
 import {DashDescriptionService} from '../dash-description.service'
 
 @Component({
@@ -27,6 +28,7 @@ export class GrafaPainelComponent implements OnInit {
   public length: number
   safeSrc: SafeResourceUrl;
   exportadorURL: string;
+  
   
 
   constructor(private responsive: BreakpointObserver, private route: ActivatedRoute, private sanitizer: DomSanitizer, private DetailsGrafana:DashDescriptionService,

@@ -1,7 +1,9 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, Input, OnInit } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpRequest } from '@angular/common/http';
 import { AcessibilityBarComponent } from '../acessibility-bar/acessibility-bar.component';
+import { Observable, throwError } from 'rxjs';
+import { ExportadorService } from 'src/app/exportador.service';
 
 @Component({
   selector: 'app-initial-page',
@@ -19,7 +21,7 @@ export class InitialPageComponent implements OnInit {
   acessoMobile = false;
   exportadorURL: string;
 
-  constructor (private acessibilityBarComponent: AcessibilityBarComponent, private responsive: BreakpointObserver, private http: HttpClient) {}
+  constructor (private acessibilityBarComponent: AcessibilityBarComponent, private responsive: BreakpointObserver, private exportador: ExportadorService) {}
 
   ngOnInit(): void {
     
@@ -135,14 +137,10 @@ export class InitialPageComponent implements OnInit {
     }
   }
 
-  fazerDownload(tituloDoGrafico){
-
-    const params = new HttpParams({fromString: 'titulo=' + tituloDoGrafico});
-
-    // const params = new HttpParams().set('titulo','teste');
-    const exportadorRequest = this.http.get(this.exportadorURL, {params});
-
-    exportadorRequest.subscribe();
+  fazerDownload(){
+    let request = this.exportador.getCSV();
+    console.log(request)
+    request.subscribe( data => console.log(data))
   }
 }
 
