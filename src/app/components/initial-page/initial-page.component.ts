@@ -140,7 +140,22 @@ export class InitialPageComponent implements OnInit {
   fazerDownload(){
     let request = this.exportador.getCSV();
     request.subscribe(response =>
-      console.log(response))
+      console.log(this.downloadFile(response, "text/csv")));
+  }
+
+  downloadFile(data: any, type: string) {
+    let blob = new Blob([data], { type: type});
+    let url = window.URL.createObjectURL(blob);
+    console.log(blob)
+    var anchor = document.createElement("a");
+    anchor.download = "meuPainel.csv";
+    anchor.href = url;
+    anchor.click();
+    // let pwa = window.open(url);
+    // console.log(pwa)
+    // if (!pwa || pwa.closed || typeof pwa.closed == 'undefined') {
+    //     alert( 'Please disable your Pop-up blocker and try again.');
+    // }
   }
 }
 
