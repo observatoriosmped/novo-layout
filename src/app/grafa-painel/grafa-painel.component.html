@@ -19,7 +19,7 @@
             <h4 id="titulo-panel-valor" tabindex="0">Título: {{panel.title}}</h4>
 
             <button title="Botão para realizar download do arquivo csv correspondente ao gráfico {{panel.title}}"
-            class="download" [id]="panel.title" (click)="abrirMenu(panel.title)">Download CSV</button>  
+            class="download" [id]="panel.title" (click)="fazerDownload(panel.title)">Download CSV</button>  
 
             <p id="descricao-panel-valor" tabindex="0">Descrição: {{panel.description}}</p> 
     </div>
