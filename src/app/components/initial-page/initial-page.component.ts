@@ -1,5 +1,6 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, Input, OnInit } from '@angular/core';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { AcessibilityBarComponent } from '../acessibility-bar/acessibility-bar.component';
 
 @Component({
@@ -16,8 +17,9 @@ export class InitialPageComponent implements OnInit {
   public asArray = document.getElementsByTagName('a');
   public ulsArray = document.getElementsByTagName ('ul');
   acessoMobile = false;
+  exportadorURL: string;
 
-  constructor (private acessibilityBarComponent: AcessibilityBarComponent, private responsive: BreakpointObserver) {}
+  constructor (private acessibilityBarComponent: AcessibilityBarComponent, private responsive: BreakpointObserver, private http: HttpClient) {}
 
   ngOnInit(): void {
     
@@ -131,6 +133,16 @@ export class InitialPageComponent implements OnInit {
         }
       }
     }
+  }
+
+  fazerDownload(tituloDoGrafico){
+
+    const params = new HttpParams({fromString: 'titulo=' + tituloDoGrafico});
+
+    // const params = new HttpParams().set('titulo','teste');
+    const exportadorRequest = this.http.get(this.exportadorURL, {params});
+
+    exportadorRequest.subscribe();
   }
 }
 
