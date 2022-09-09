@@ -14,8 +14,13 @@ export class ExportadorService {
   constructor(private http: HttpClient) {
   }
 
-  getCSV(): Observable<any> {
-    const params = new HttpParams().set('fileName','teste.csv');
+  // getCSV(tituloPainel): Observable<any> {
+  //   const params = new HttpParams().set('fileName',tituloPainel);
+  //   return this.http.get(this.baseURL, {params:params, responseType:'blob'})
+  // }
+
+  getCSV(tituloDoGrafico): Observable<any> {
+    const params = new HttpParams().set('fileName', tituloDoGrafico);
     return this.http.get(this.baseURL, {params:params, responseType:'blob'})
   }
  

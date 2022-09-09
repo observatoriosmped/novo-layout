@@ -13,10 +13,10 @@ export class DashDescriptionService {
 
    getDescription(uid: string)
   {
-  let url="https://4500-143-107-167-161.sa.ngrok.io/api/dashboards/uid/" + uid
+  let url="http://localhost:4200/api/dashboards/uid/" + uid
    const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': `Bearer eyJrIjoiQmZzaXEzR2pQNXFTcW5qa2t6dVN6bTk1d0UzVklVOVoiLCJuIjoibGFiMiIsImlkIjoxfQ==`
+      'Authorization': `Bearer eyJrIjoiY3dQOFpiUWZNMkNkaHRIN3BMZkM1TGhlVkVmWXpDM0EiLCJuIjoibGFiIiwiaWQiOjF9`
     }) 
     this.safeSrc =  this.sanitizer.bypassSecurityTrustResourceUrl(url);
     return this.http.get(url);    
@@ -41,8 +41,4 @@ export class DashDescriptionService {
     }) 
     return this.http.get(url, {headers: headers});    
   */
-
-
-
-  
 }

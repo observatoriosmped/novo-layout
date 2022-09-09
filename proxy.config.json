@@ -1,6 +1,6 @@
 {
     "/api": {
-        "target": "https://4500-143-107-167-161.sa.ngrok.io/",
+        "target": "https://b737-143-107-167-161.sa.ngrok.io/",
         "secure": false,
         "changeOrigin": true
         }

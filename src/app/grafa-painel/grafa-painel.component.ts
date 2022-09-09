@@ -4,6 +4,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { MatTableDataSource } from '@angular/material/table'
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { HttpClient, HttpParams } from '@angular/common/http';
+import { ExportadorService } from 'src/app/exportador.service';
 
 
 import {DashDescriptionService} from '../dash-description.service'
@@ -32,7 +33,7 @@ export class GrafaPainelComponent implements OnInit {
   
 
   constructor(private responsive: BreakpointObserver, private route: ActivatedRoute, private sanitizer: DomSanitizer, private DetailsGrafana:DashDescriptionService,
-    private http: HttpClient) {
+    private http: HttpClient, private exportador: ExportadorService) {
     
   }
 
@@ -44,8 +45,8 @@ export class GrafaPainelComponent implements OnInit {
     this.url = this.id.slice(this.separator2 + 4, this.separator)
     this.uid = this.id.slice(0, this.separator2)
     this.title = this.id.slice(this.separator + 1, this.id.length)
-    // this.source = "https://6d5a-143-107-167-161.sa.ngrok.io/d" + this.url + "?orgId=1" + "&kiosk=true"
-    this.source = "http://localhost:3000/d" + this.url + "?orgId=1" + "&kiosk=true"
+    this.source = "https://b737-143-107-167-161.sa.ngrok.io/d" + this.url + "?orgId=1" + "&kiosk=true"
+    // this.source = "http://localhost:3000/d" + this.url + "?orgId=1" + "&kiosk=true"
     this.safeSrc =  this.sanitizer.bypassSecurityTrustResourceUrl(this.source)
     this.exportadorURL = "";
 
@@ -66,14 +67,19 @@ export class GrafaPainelComponent implements OnInit {
     });
   }
   //Chama a API do exportador
-  fazerDownload(tituloDoGrafico){
+  fazerDownload(tituloDoPainel){
+    let request = this.exportador.getCSV(tituloDoPainel);
+    request.subscribe(response =>
+      this.downloadFile(response, "text/csv"));
+  }
 
-    const params = new HttpParams({fromString: 'titulo=' + tituloDoGrafico});
-
-    // const params = new HttpParams().set('titulo','teste');
-    const exportadorRequest = this.http.get(this.exportadorURL, {params});
-
-    exportadorRequest.subscribe();
+  downloadFile(data: any, type: string) {
+    let blob = new Blob([data], { type: type});
+    let url = window.URL.createObjectURL(blob);
+    var anchor = document.createElement("a");
+    anchor.download = this.title + ".csv";
+    anchor.href = url;
+    anchor.click();
   }
 }
   

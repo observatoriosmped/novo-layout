@@ -13,14 +13,15 @@
     <div id="graficos" tabindex="-1">
         <iframe id="myIframe" tabindex="-1" [src]="safeSrc" width="90%" height="1000" frameborder="0"></iframe>
     </div>
-    
+
+    <div id="botaoDownload">
+        <button title="Botão para realizar download do arquivo csv correspondente ao painel {{title }}"
+            class="download" (click)="fazerDownload(title )">Download CSV</button>
+    </div>
+            
+    <h3 tabindex="0" [ngClass]="{'mobile': acessoMobile}">Gráficos presentes neste painel: </h3>
     <div id="text2" *ngFor="let panel of description[0].dashboard.panels">   
-            <h3 tabindex="0" [ngClass]="{'mobile': acessoMobile}">Gráficos presentes neste painel: </h3>
-            <h4 id="titulo-panel-valor" tabindex="0">Título: {{panel.title}}</h4>
-
-            <button title="Botão para realizar download do arquivo csv correspondente ao gráfico {{panel.title}}"
-            class="download" [id]="panel.title" (click)="fazerDownload(panel.title)">Download CSV</button>  
-
+            <h4 id="titulo-panel-valor" tabindex="0">Título: {{panel.title}}</h4>  
             <p id="descricao-panel-valor" tabindex="0">Descrição: {{panel.description}}</p> 
     </div>
 </div>

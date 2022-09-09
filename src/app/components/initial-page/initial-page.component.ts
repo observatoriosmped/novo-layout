@@ -3,7 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { HttpClient, HttpParams, HttpRequest } from '@angular/common/http';
 import { AcessibilityBarComponent } from '../acessibility-bar/acessibility-bar.component';
 import { Observable, throwError } from 'rxjs';
-import { ExportadorService } from 'src/app/exportador.service';
+
 
 @Component({
   selector: 'app-initial-page',
@@ -21,7 +21,7 @@ export class InitialPageComponent implements OnInit {
   acessoMobile = false;
   exportadorURL: string;
 
-  constructor (private acessibilityBarComponent: AcessibilityBarComponent, private responsive: BreakpointObserver, private exportador: ExportadorService) {}
+  constructor (private acessibilityBarComponent: AcessibilityBarComponent, private responsive: BreakpointObserver) {}
 
   ngOnInit(): void {
     
@@ -137,25 +137,6 @@ export class InitialPageComponent implements OnInit {
     }
   }
 
-  fazerDownload(){
-    let request = this.exportador.getCSV();
-    request.subscribe(response =>
-      console.log(this.downloadFile(response, "text/csv")));
-  }
-
-  downloadFile(data: any, type: string) {
-    let blob = new Blob([data], { type: type});
-    let url = window.URL.createObjectURL(blob);
-    console.log(blob)
-    var anchor = document.createElement("a");
-    anchor.download = "meuPainel.csv";
-    anchor.href = url;
-    anchor.click();
-    // let pwa = window.open(url);
-    // console.log(pwa)
-    // if (!pwa || pwa.closed || typeof pwa.closed == 'undefined') {
-    //     alert( 'Please disable your Pop-up blocker and try again.');
-    // }
-  }
+  
 }
 
