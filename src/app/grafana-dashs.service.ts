@@ -8,25 +8,25 @@ export class GrafanaDashsService {
 
   constructor(private http:HttpClient) { }
 
+  // getData()
+  // {
+  //  let url="http://localhost:4200/api/search"
+  //  const headers = new HttpHeaders({
+  //    'Content-Type': 'application/json',
+  //    'Authorization': `Bearer glsa_Sof0HKi2agxrQP9qm4r2G99VacBNwV4P_9b639c46`
+  //  }) 
+  //  return this.http.get(url, {headers: headers});    
+  // }
+
   getData()
-  {
-   let url="http://localhost:3000/api/search"
+ {
+   let url="http://localhost:4200/api/search"
    const headers = new HttpHeaders({
      'Content-Type': 'application/json',
-     'Authorization': `Bearer glsa_t4PlP5G3Xbvjzd9ZDRvsmjWQK4COKKBm_7b550827`
+     'Authorization': `Bearer eyJrIjoiY3dQOFpiUWZNMkNkaHRIN3BMZkM1TGhlVkVmWXpDM0EiLCJuIjoibGFiIiwiaWQiOjF9`
    }) 
    return this.http.get(url, {headers: headers});    
-  }
-
-  //getData()
-//  {
-//    let url="https://f5aa-143-107-167-161.sa.ngrok.io/api/search"
-//    const headers = new HttpHeaders({
-//      'Content-Type': 'application/json',
-//      'Authorization': `Bearer eyJrIjoieTFPRWZGb21sWDBUZDd0N1RvZWlvUVB2dk1ieFh2b3EiLCJuIjoib2JzZXJ2YXRvcmlvIiwiaWQiOjF9`
-//    }) 
-//    return this.http.get(url, {headers: headers});    
-//  }
+ }
 
 // getData()
 //   {

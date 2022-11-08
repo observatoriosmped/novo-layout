@@ -1,6 +1,9 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, Input, OnInit } from '@angular/core';
+import { HttpClient, HttpParams, HttpRequest } from '@angular/common/http';
 import { AcessibilityBarComponent } from '../acessibility-bar/acessibility-bar.component';
+import { Observable, throwError } from 'rxjs';
+
 
 @Component({
   selector: 'app-initial-page',
@@ -16,6 +19,7 @@ export class InitialPageComponent implements OnInit {
   public asArray = document.getElementsByTagName('a');
   public ulsArray = document.getElementsByTagName ('ul');
   acessoMobile = false;
+  exportadorURL: string;
 
   constructor (private acessibilityBarComponent: AcessibilityBarComponent, private responsive: BreakpointObserver) {}
 
@@ -132,5 +136,7 @@ export class InitialPageComponent implements OnInit {
       }
     }
   }
+
+  
 }
 
