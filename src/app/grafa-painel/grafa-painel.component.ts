@@ -77,12 +77,17 @@ export class GrafaPainelComponent implements OnInit {
   }
 
   downloadFile(data: any, type: string) {
-    let blob = new Blob([data], { type: type});
-    let url = window.URL.createObjectURL(blob);
-    var anchor = document.createElement("a");
-    anchor.download = this.title + ".csv";
-    anchor.href = url;
-    anchor.click();
+    if(data) {
+      let blob = new Blob([data], { type: type});
+      let url = window.URL.createObjectURL(blob);
+      var anchor = document.createElement("a");
+      anchor.download = this.title + ".csv";
+      anchor.href = url;
+      anchor.click();
+    }
+    else {
+      alert("O arquivo não foi encontrado");
+    }    
   }
 }
   
