@@ -1,10 +1,10 @@
 <div id="pginicial">
     <div id="titulo" [ngClass]="{'mobile': acessoMobile}" role="tablist">
-        <h2 [ngClass]="{'mobile': acessoMobile}" tabindex="0" role="tab" >Ajuda</h2>
+        <h2 [ngClass]="{'mobile': acessoMobile}" tabindex="-1" role="tab" >Ajuda</h2>
     </div>
     <br>    
     <div id="text" [ngClass]="{'mobile': acessoMobile}" role="tablist">
-        <p [ngClass]="{'mobile': acessoMobile}" tabindex="0" role="tab">
+        <p [ngClass]="{'mobile': acessoMobile}" tabindex="-1" role="tab">
             Caso esteja com dificuldade, assista esse vídeo para utilizar o Portal do Observatório:</p>
     <br>
     <iframe *ngIf="!acessoMobile" width="840" height="472" src="https://www.youtube.com/embed/hGvShzSNUyM" title="YouTube video player - vídeo de ajuda" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

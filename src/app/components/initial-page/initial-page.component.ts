@@ -24,6 +24,8 @@ export class InitialPageComponent implements OnInit {
   constructor (private acessibilityBarComponent: AcessibilityBarComponent, private responsive: BreakpointObserver) {}
 
   ngOnInit(): void {
+
+    this.h2sArray[0].focus();
     
     this.responsive.observe([Breakpoints.HandsetPortrait, Breakpoints.TabletPortrait]).subscribe
     (result =>{

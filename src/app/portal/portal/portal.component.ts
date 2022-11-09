@@ -83,6 +83,8 @@ export class PortalComponent implements OnInit {
     }
 
   async ngOnInit() {
+
+    this.h2sArray[0].focus();
     this.responsive.observe(Breakpoints.HandsetPortrait).subscribe
     (result =>{
       

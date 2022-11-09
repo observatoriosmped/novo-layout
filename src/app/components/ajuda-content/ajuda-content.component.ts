@@ -23,6 +23,8 @@ export class AjudaContentComponent implements OnInit {
 
   ngOnInit(): void {
 
+    this.h2sArray[0].focus();
+
     this.responsive.observe([Breakpoints.HandsetPortrait, Breakpoints.TabletPortrait]).subscribe
     (result =>{
       

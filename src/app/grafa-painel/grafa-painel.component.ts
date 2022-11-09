@@ -19,6 +19,7 @@ export class GrafaPainelComponent implements OnInit {
   menuAberto = false;
   acessoMobile = false;
   public id: string;
+  public h2sArray = document.getElementsByTagName("h2");
   public description = []
   public url: string
   public uid: string
@@ -38,6 +39,8 @@ export class GrafaPainelComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    this.h2sArray[0].focus();
     
     this.id = this.route.snapshot.paramMap.get('id');
     this.separator = this.id.indexOf("&")
