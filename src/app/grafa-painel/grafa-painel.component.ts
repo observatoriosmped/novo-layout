@@ -72,22 +72,20 @@ export class GrafaPainelComponent implements OnInit {
   //Chama a API do exportador
   fazerDownload(tituloDoPainel){
     let request = this.exportador.getCSV(tituloDoPainel);
-    request.subscribe(response =>
-      this.downloadFile(response, "text/csv"));
+    request.subscribe({next: response =>
+      this.downloadFile(response, "text/csv"), 
+    error: error => {
+      alert("O arquivo não foi encontrado!");
+    }});
   }
 
   downloadFile(data: any, type: string) {
-    if(data) {
-      let blob = new Blob([data], { type: type});
-      let url = window.URL.createObjectURL(blob);
-      var anchor = document.createElement("a");
-      anchor.download = this.title + ".csv";
-      anchor.href = url;
-      anchor.click();
-    }
-    else {
-      alert("O arquivo não foi encontrado");
-    }    
+    let blob = new Blob([data], { type: type});
+    let url = window.URL.createObjectURL(blob);
+    var anchor = document.createElement("a");
+    anchor.download = this.title + ".csv";
+    anchor.href = url;
+    anchor.click();  
   }
 }
   
