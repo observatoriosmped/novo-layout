@@ -10,8 +10,12 @@
             
         <li><a href="#" class="hover2" accesskey="5" (keypress)="openDialog()" id="irAcessibilidade" tabindex="0" title="Acessibilidade" (click)="openDialog()" (keypress)="onKeyPressAcess($event)">Acessibilidade [alt+5]</a></li> 
         
-        <li><a class="fontsize" role="button" (keypress)="aumentarFonte()" id="aumentar" (click)="aumentarFonte()" alt="Aumentar fonte" tabindex="0" title="Aumentar Tamanho do Texto">A+</a></li>
-        <li><a class="fontsize" role="button" id="diminuir" (keypress)="diminuirFonte()" (click)="diminuirFonte()" alt="Diminuir fonte" tabindex="0" title="Diminuir Tamanho do Texto">A-</a></li>
+        <li>
+            <a class="fontsize" role="button" (keypress)="aumentarFonte()" id="aumentar" (click)="aumentarFonte()" alt="Aumentar fonte" tabindex="0" title="Aumentar Tamanho do Texto">A+</a>
+        
+            <a class="fontsize" role="button" id="diminuir" (keypress)="diminuirFonte()" (click)="diminuirFonte()" alt="Diminuir fonte" tabindex="0" title="Diminuir Tamanho do Texto">A-</a>
+        </li>
+        
         
     </ul>
 </div>
