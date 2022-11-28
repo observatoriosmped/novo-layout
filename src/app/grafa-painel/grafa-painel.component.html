@@ -3,7 +3,7 @@
         <button class="botaoVoltarProprio" tabindex="0" title="Clique para retornar à página de painéis" routerLink="/paineis">Voltar</button>
     </div>  
     <div id="titulo" role="tablist">
-        <h2 tabindex="-1" role="tab">{{ title }}</h2>
+        <h2 tabindex="0" role="tab">{{ title }}</h2>
     </div>  
     <div class="text">   
             <p id="titulo-valor" tabindex="-1">Tema: {{description[0].meta.folderTitle}}</p> 
@@ -14,13 +14,13 @@
         <iframe id="myIframe" tabindex="-1" [src]="safeSrc" width="90%" height="1000" frameborder="0"></iframe>
     </div>
 
-    <div id="botaoDownload">
+    <!-- <div id="botaoDownload">
         <button tabindex="0" alt="Este botão inicia o download do arquivo CSV correspondente ao painel"
         title="Botão para realizar download do arquivo csv correspondente ao painel {{ title }}">
             class="download" (click)="fazerDownload(title )">Download CSV</button>
-    </div>
+    </div> -->
             
-    <h3 tabindex="-1" [ngClass]="{'mobile': acessoMobile}">Gráficos presentes neste painel: </h3>
+    <h3 tabindex="0" [ngClass]="{'mobile': acessoMobile}">Gráficos presentes neste painel: </h3>
     <div id="text2" *ngFor="let panel of description[0].dashboard.panels">   
             <h4 id="titulo-panel-valor" tabindex="-1">Título: {{panel.title}}</h4>  
             <p id="descricao-panel-valor" tabindex="-1">Descrição: {{panel.description}}</p> 
