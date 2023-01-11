@@ -18,4 +18,13 @@
             O Observatório é uma ação da Secretaria Municipal da Pessoa com Deficiência de São Paulo que elabora, centraliza e divulga os dados relativos a pessoas com deficiência e acessibilidade na cidade. Ainda analisa e monitora políticas públicas que atendem pessoas com deficiência.
         </p>
     </div>
+
+    <div id="text" [ngClass]="{'mobile': acessoMobile}" role="tablist">
+        <p [ngClass]="{'mobile': acessoMobile}" tabindex="-1" role="tab">
+            </p>
+    <br>
+    <iframe *ngIf="!acessoMobile" width="500" height="300" src="https://www.youtube.com/embed/66o4W6ybbQE" title="YouTube video player - vídeo de ajuda" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <iframe *ngIf="acessoMobile" [ngClass]="{'mobile': acessoMobile}" width="300" height="200" src="https://www.youtube.com/embed/66o4W6ybbQE" title="YouTube video player - vídeo de ajuda" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>  
+
 </div>
