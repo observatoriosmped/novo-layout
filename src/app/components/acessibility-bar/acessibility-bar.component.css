@@ -1,16 +1,17 @@
 .table {
     display: table;  
-	margin: 0 !important;
-    overflow: clip;
+	margin: 0 auto;
 }
 
 #atalhos {
     background-color: #EEEEE4;
     color: #333333;
     font-size: 18px;
-    /* margin: 0px; */
+    margin: 0px;
     padding: 0px;
     list-style-type: none;
+    width: 100%;
+    align-content: center;
 }
 
 .fontsize {
