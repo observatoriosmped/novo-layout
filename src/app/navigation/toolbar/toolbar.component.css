@@ -5,6 +5,7 @@
     position: relative;
     padding-bottom: 10px;
     padding-top: 10px;
+    overflow: hidden;
 }
 
 #toolbar-principal.mobile {
@@ -28,7 +29,10 @@ h1{
 }
 
 .logo {
-    height: 150px;
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+
 }
 
 .logo.mobile{
@@ -41,7 +45,9 @@ h1{
 }
 
 .logoPref {
-    height: 180px;
+    width: 100%;
+    max-width: 400px;
+    height: auto;
 }
 
 #logos {

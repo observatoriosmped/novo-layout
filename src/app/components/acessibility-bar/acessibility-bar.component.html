@@ -11,7 +11,10 @@
         <li><a class="hover2" (keypress)="openDialog()" id="irAcessibilidade" tabindex="0" title="Acessibilidade" (click)="openDialog()" (keypress)="onKeyPressAcess($event)">Acessibilidade [alt + 5]</a></li> 
         
         <li>
-            <a class="fontsize" (keypress)="aumentarFonte()" id="aumentar" (click)="aumentarFonte()" alt="Aumentar fonte" tabindex="0" title="Aumentar Tamanho do Texto">A+</a>
+            <a class="fontsize" (keypress)="aumentarFonte()" id="aumentar" (click)="aumentarFonte()" alt="Aumentar fonte" tabindex="0" title="Aumentar Tamanho do Texto">A+</a> 
+        </li>
+        
+        <li>
             <a class="fontsize" id="diminuir" (keypress)="diminuirFonte()" (click)="diminuirFonte()" alt="Diminuir fonte" tabindex="0" title="Diminuir Tamanho do Texto">A-</a>
         </li>
     </ul>

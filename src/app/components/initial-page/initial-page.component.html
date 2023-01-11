@@ -1,26 +1,26 @@
 <div id="pginicial">
-    <div id="titulo" *ngIf="!acessoMobile" role="tablist">
-        <h2 tabindex="-1" role="tab">Bem vindo ao Observatório Municipal da Pessoa com Deficiência</h2>
+    <div id="titulo" *ngIf="!acessoMobile" >
+        <h2 tabindex="-1" >Bem vindo ao Observatório Municipal da Pessoa com Deficiência</h2>
     </div>
 
-    <div id="titulo-mobile" *ngIf="acessoMobile" role="tablist">
-        <h2 tabindex="-1" role="tab" [ngClass]="{'mobile': acessoMobile}">Bem vindo ao Observatório Municipal da Pessoa com Deficiência</h2>
+    <div id="titulo-mobile" *ngIf="acessoMobile" >
+        <h2 tabindex="-1"  [ngClass]="{'mobile': acessoMobile}">Bem vindo ao Observatório Municipal da Pessoa com Deficiência</h2>
     </div>
 
-    <div id="text" *ngIf="!acessoMobile" role="tablist">
-        <p [ngClass]="{'mobile': acessoMobile}" tabindex="-1" role="tab">
+    <div id="text" *ngIf="!acessoMobile" >
+        <p [ngClass]="{'mobile': acessoMobile}" tabindex="-1" >
             O Observatório é uma ação da Secretaria Municipal da Pessoa com Deficiência de São Paulo que elabora, centraliza e divulga os dados relativos a pessoas com deficiência e acessibilidade na cidade. Ainda analisa e monitora políticas públicas que atendem pessoas com deficiência.
         </p>
     </div>
 
-    <div id="text-mobile" *ngIf="acessoMobile" role="tablist">
-        <p [ngClass]="{'mobile': acessoMobile}" tabindex="-1" role="tab">
+    <div id="text-mobile" *ngIf="acessoMobile" >
+        <p [ngClass]="{'mobile': acessoMobile}" tabindex="-1" >
             O Observatório é uma ação da Secretaria Municipal da Pessoa com Deficiência de São Paulo que elabora, centraliza e divulga os dados relativos a pessoas com deficiência e acessibilidade na cidade. Ainda analisa e monitora políticas públicas que atendem pessoas com deficiência.
         </p>
     </div>
 
-    <div id="text" [ngClass]="{'mobile': acessoMobile}" role="tablist">
-        <p [ngClass]="{'mobile': acessoMobile}" tabindex="-1" role="tab">
+    <div id="text" [ngClass]="{'mobile': acessoMobile}" >
+        <p [ngClass]="{'mobile': acessoMobile}" tabindex="-1" >
             </p>
     <br>
     <iframe *ngIf="!acessoMobile" width="500" height="300" src="https://www.youtube.com/embed/66o4W6ybbQE" title="YouTube video player - vídeo de ajuda" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

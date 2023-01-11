@@ -1,5 +1,5 @@
 .table {
-    display: table;  
+    display: flex;  
 	margin: 0 auto;
 }
 
@@ -8,7 +8,7 @@
     color: #333333;
     font-size: 18px;
     margin: 0px;
-    padding: 0px;
+    padding: 10px;
     list-style-type: none;
     width: 100%;
     align-content: center;
@@ -42,7 +42,6 @@
 
 li {
     display: inline;
-    float: left;
     min-width: 14vw;
     width: fit-content;
     max-width: 230px;

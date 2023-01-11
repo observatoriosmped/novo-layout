@@ -1,5 +1,5 @@
 .table {
-    display: table;   /* Allow the centering to work */
+    display: flex;   /* Allow the centering to work */
 	margin: 0 auto;
 }
 
