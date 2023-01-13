@@ -1,5 +1,5 @@
 .table {
-    display: flex;  
+    display: table;   /* Allow the centering to work */
 	margin: 0 auto;
 }
 
@@ -8,7 +8,7 @@
     color: #333333;
     font-size: 18px;
     margin: 0px;
-    padding: 10px;
+    padding: 0px;
     list-style-type: none;
     width: 100%;
     align-content: center;
@@ -19,7 +19,7 @@
     width: 8px;
     color: #333333;
     padding: 4px;
-    /* margin: 3px 5px 0 0; */
+    margin: 3px 5px 0 0;
     border: 1px solid #c6c6c6;
     border-radius: 50%;
     font-size: 0.8125em;
@@ -32,7 +32,7 @@
     width: 8px;
     color: #FFF;
     padding: 4px;
-    /* margin: 3px 5px 0 0; */
+    margin: 3px 5px 0 0;
     border: 1px solid #c6c6c6;
     border-radius: 50%;
     font-size: 0.8125em;
@@ -42,7 +42,8 @@
 
 li {
     display: inline;
-    min-width: 14vw;
+    float: left;
+    min-width: 0vw;
     width: fit-content;
     max-width: 230px;
     padding-top: 5px;
@@ -52,31 +53,34 @@ li {
 }
 
 list a{
-    display: inline-block;
+    display: inline-block; 
 }
 
-.fontsize:hover, .fontsize:focus{
+.hover2:hover {
+   cursor: pointer; 
+   background-color: #333333;
+   color: #f9f9f9;
+}
+
+.hover3 {
+    color: #FFF;
+}
+
+.hover3:hover {
+    cursor: pointer; 
+    background-color: #FFF;
+    color: #000;
+ }
+
+.fontsize:hover{
     background-color: #333333 ;
     color: #f9f9f9;
     cursor: pointer;
 }
 
-.fontsize2:hover, .fontsize2:focus{
+.fontsize2:hover{
     background-color: #FFF !important;
     color: #000 !important;
     cursor: pointer;
 }
-
-a{
-    text-decoration: none;
-    color: black;
-}
-
-a:focus, a:hover{
-    cursor: pointer; 
-    background-color: #333333;
-    color: #f9f9f9; 
-}
-
-
   
